@@ -1,0 +1,21 @@
+<%- unless @requested_contacts.empty? -%>
+  <h2><%=t ('connection.contact_requests') %></h2>
+  <ul class="list requests small">
+    <%- @requested_contacts.each do |contact| -%>
+      <%- conn = Connection.conn(current_person, contact) -%>
+      <li>
+        <div class="profile-image">
+          <%= image_link contact %>
+        </div>
+        <p><%= person_link contact %></p>
+        <p class="meta published">
+          <%= t('global.ago', :time_ago => time_ago_in_words(conn.created_at)) %>
+        </p>
+        <p>
+          <%= link_to t('connection.respond'), edit_connection_path(conn) %> |
+          <%= link_to t('person.view_profile'), contact %>
+        </p>
+      </li>
+    <%- end -%>
+  </ul>
+<%- end -%>

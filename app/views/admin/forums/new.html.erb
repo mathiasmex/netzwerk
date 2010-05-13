@@ -1,0 +1,21 @@
+<h2><%=t :forum.new_forum %></h2>
+
+<%= error_messages_for :forum %>
+
+<% form_for :forum, :url => admin_forums_path do |f| %>
+  <p>
+    <b><%=t ('forum.name') %></b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b><%=t ('forum.description') %></b><br />
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.submit t('global.create') %>
+  </p>
+<% end %>
+
+<%= link_to t('global.back'), forums_path %>

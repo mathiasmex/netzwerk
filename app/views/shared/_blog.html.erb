@@ -1,0 +1,20 @@
+<h2><%= t('post.persons_blog', :person => h(@blog.owner.name)) %></h2>
+
+
+<%- if (@blog.owner.class.to_s == "Person" and current_person?(@blog.owner)) or
+    (@blog.owner.class.to_s == "Group" and current_person?(@blog.owner.owner))
+    -%>
+  <p><%= link_to t('post.new_blog_post'), new_blog_post_path(@blog) %></p>
+<%- end -%> 
+
+<%- if @posts.empty? -%>
+  <h3 class="blankslate">
+    <%=t ('post.no_blog_posts') %>
+  </h3> 
+<%- else -%>
+  <ul class="list blog full">
+    <%= render :partial => 'posts/blog_post', :collection => @posts %>
+  </ul>
+<%- end -%>
+
+<%= will_paginate(@posts) %>

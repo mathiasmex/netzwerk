@@ -1,0 +1,31 @@
+<h1><%=t ('comment.new_comment') %></h1>
+
+<%= error_messages_for :comment %>
+
+<% form_for(@comment) do |f| %>
+  <p>
+    <b><%=t ('comment.person') %></b><br />
+    <%= f.text_field :person_id %>
+  </p>
+
+  <p>
+    <b><%=t ('comment.blog') %></b><br />
+    <%= f.text_field :blog_id %>
+  </p>
+
+  <p>
+    <b><%=t ('comment.body') %></b><br />
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <b><%=t ('comment.type') %></b><br />
+    <%= f.text_field :type %>
+  </p>
+
+  <p>
+    <%= f.submit t('global.create') %>
+  </p>
+<% end %>
+
+<%= link_to t('global.back'), comments_path %>

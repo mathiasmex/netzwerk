@@ -1,0 +1,21 @@
+<li class="list gallery">
+  <div class="profile-image">
+  <%= link_to image_tag(gallery.icon_url), gallery_path(gallery) %>
+  </div>
+  <p>
+  <%= link_to h(gallery.title), gallery_path(gallery), :class => 'gallery_title' %>
+  <% if current_person?(gallery.owner) or current_person.own_groups.include?(gallery.owner) %>
+      <%= link_to image_tag("icons/picture_edit.png", :class => 'actioner'),  
+                   edit_gallery_path(gallery),
+                   :title => t('gallery.edit_gallery') %>
+      <%- if @parent.galleries.count > 1 -%>
+      <%= link_to image_tag("icons/picture_delete.png", :class => 'actioner'), 
+                   gallery,
+                   :method => :delete, 
+                   :confirm => t('gallery.delete_gallery_confirmation'),
+                   :title => t('gallery.delete_gallery') %>
+      <%- end -%>
+  <%- end -%>
+  </p>
+  <%= display gallery.short_description %>
+</li>

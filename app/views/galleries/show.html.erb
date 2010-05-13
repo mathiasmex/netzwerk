@@ -1,0 +1,37 @@
+<div id="photos">
+  <h2><%= t('gallery.photos_in_gallery', :gallery => h(@gallery.title)) %></h2>
+    <% unless @gallery.description.nil? %>
+    <div class="gallery-description">
+      <%- unless @gallery.description.blank? -%>
+      <p><strong><%= t('gallery.description') %>:</strong> <%= @gallery.description %></p>
+      <%- end -%>
+    </div>
+    <% end %>
+  
+    <p>
+      <% if @gallery.owner_type == "Person" %>
+        <% if current_person?(@gallery.owner) %>
+          <%= link_to t('photo.add_photo'), new_gallery_photo_path(@gallery) %> |
+          <%= link_to t('gallery.edit_gallery'), edit_gallery_path %> |
+        <% end %>
+        <%= link_to t('gallery.all_galleries'), person_path(@gallery.owner,
+                                   :anchor => 'tGalleries') %>
+      <% else %>
+        <% if current_person.own_groups.include?(@gallery.owner)%>
+          <%= link_to t('photo.add_photo'), new_gallery_photo_path(@gallery) %> |
+          <%= link_to t('gallery.edit_gallery'), edit_gallery_path %> |
+        <% end %>
+        <%= link_to t('gallery.all_galleries'), group_path(@gallery.owner,
+                                   :anchor => 'tGalleries') %>
+      <% end %>
+    </p>
+  
+    <%- if @photos.empty? -%>
+    <h3><%=t ('gallery.no_photos_yet') %>
+    <%- else -%>
+      <ul>
+        <%= render :partial=>"shared/photo", :collection => @photos %>
+      </ul>
+      <%= will_paginate(@photos) %>
+    <%- end -%>
+</div>

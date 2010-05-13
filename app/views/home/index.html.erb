@@ -1,0 +1,53 @@
+<%- column_div :type => :primary do -%>
+  <%- if logged_in? and current_person.has_unread_messages? -%>
+    <div class="notice">
+      <%= t('home.unread_messages_notice') %>
+      <%= link_to t('home.unread_messages_link'),
+                  messages_path %>
+    </div>
+  <%- end -%>
+  <%- if logged_in? -%>
+    <%= render :partial => 'feed' %>
+  <%- else -%>
+    <%= render :partial => 'session' %>
+  <%- end -%>
+<%- end -%>
+
+<%- column_div :type => :secondary do -%>
+  <%- if logged_in? -%>
+    <%= render :partial => "searches/box" %>
+    <%= render :partial => 'requested_contacts' %>
+    <%= render :partial => 'messages_preview' %>
+    <%= render :partial => 'requested_memberships' %>
+    <%= render :partial => 'invitations' %>
+    <%= render :partial => 'shared/contacts_preview',
+               :locals => { :person => current_person } %>
+    <%= render :partial => 'shared/app_box',
+               :locals => { :person => current_person } %>
+    <%= render :partial => 'shared/groups',
+               :locals => { :groups => current_person.own_groups,
+               :title => t('groups.admin_groups'), :link => "admin" } %>
+    <%= render :partial => 'shared/groups',
+               :locals => { :groups => current_person.groups,
+               :title => t('groups.joined_groups'), :link => "groups" } %>
+  <%- else -%>
+    <%- unless global_prefs.app_name.blank? -%>
+      <h2><%=t ('home.about') %><%= global_prefs.app_name %></h2>
+    
+      <p>
+        <%= link_to t('global.click_here'), about_path %>
+        <%= t('home.learn_more_about_us', :the_site => global_prefs.app_name) %>.
+      </p>
+    <%- end -%>
+    
+    <h2>
+      <%= global_prefs.app_name.blank? ? t('global.the_site') : global_prefs.app_name %>
+      <%= t('person.join') %>
+    </h2>
+    
+    <div style="text-align: center;">
+      <%= link_to image_tag("button_signup.png"), signup_path %>
+    </div>
+      
+  <%- end -%>
+<%- end -%>

@@ -1,0 +1,26 @@
+<h1><%=t ('connection.new_connection') %></h1>
+
+<%= error_messages_for :connection %>
+
+<% form_for(@connection) do |f| %>
+  <p>
+    <b><%=t ('connection.person') %></b><br />
+    <%= f.text_field :person_id %>
+  </p>
+
+  <p>
+    <b><%=t ('connection.connection') %></b><br />
+    <%= f.text_field :contact_id %>
+  </p>
+
+  <p>
+    <b><%=t ('connection.status') %></b><br />
+    <%= f.text_field :status %>
+  </p>
+
+  <p>
+    <%= f.submit t('global.create') %>
+  </p>
+<% end %>
+
+<%= link_to t('global.back'), connections_path %>

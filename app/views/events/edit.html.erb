@@ -1,0 +1,7 @@
+<% column_div :type => :primary do -%>
+  <h2><%=t ('event.editing_event') %></h2>
+
+  <%= render :partial => 'event_form' %>
+
+  <%= link_to t('global.back'), events_path %>
+<% end -%>
