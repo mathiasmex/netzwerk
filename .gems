@@ -1,1 +1,1 @@
-geokit --source github.com/andre/geokit-gem.git
+geokit --source github.com/andre/geokit-gem/tree/master
