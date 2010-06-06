@@ -71,7 +71,7 @@ Rails::Initializer.run do |config|
   #                                    :source => 'http://gems.github.com'
   config.gem 'chronic'
   config.gem 'BlueCloth', :lib => 'bluecloth'
-  config.gem "geokit"
+  config.gem 'geokit'
   # config.gem 'rack-openid', :version => '>= 1.0.1'
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
