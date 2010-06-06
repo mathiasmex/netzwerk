@@ -1,10 +1,10 @@
 # == Schema Information
-# Schema version: 20080916002106
+# Schema version: 20090218124612
 #
 # Table name: events
 #
 #  id                    :integer(4)      not null, primary key
-#  title                 :string(255)     default(""), not null
+#  title                 :string(255)     not null
 #  description           :string(255)     
 #  person_id             :integer(4)      not null
 #  start_time            :datetime        not null
@@ -14,6 +14,9 @@
 #  updated_at            :datetime        
 #  event_attendees_count :integer(4)      default(0)
 #  privacy               :integer(4)      not null
+#  lat                   :float           default(0.0)
+#  lng                   :float           default(0.0)
+#  full_address          :string(255)     
 #
 
 class Event < ActiveRecord::Base

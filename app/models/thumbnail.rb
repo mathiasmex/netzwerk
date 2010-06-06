@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080916002106
+# Schema version: 20090218124612
 #
 # Table name: thumbnails
 #

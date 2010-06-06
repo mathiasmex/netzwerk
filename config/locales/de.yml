@@ -464,6 +464,8 @@ de:
     comment_wall:                   "{{group}}'s Kommentar-Pinnwand"
     must_be_member_notice:          "nur als Mitglied der Initiative: <strong>{{group}}</strong>
                                      kann ein Kommentar auf der Pinnwand hinterlassen werden."
+    group_person:                   "{{person}}'s Initiativen"
+    add_group:                      "Neue Initiative hinzuf&uuml;gen"
 
   groups:
     admin_groups:           "Eigene Initiativen"

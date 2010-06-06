@@ -1,15 +1,15 @@
 # == Schema Information
-# Schema version: 20080916123706
+# Schema version: 20090218124612
 #
 # Table name: memberships
 #
-#  id               :integer(4)      not null, primary key
-#  group_id         :integer(4)      
-#  person_id        :integer(4)      
-#  status           :integer(4)      
-#  accepted_at      :datetime        
-#  created_at       :datetime        
-#  updated_at       :datetime        
+#  id          :integer(4)      not null, primary key
+#  group_id    :integer(4)      
+#  person_id   :integer(4)      
+#  status      :integer(4)      
+#  accepted_at :datetime        
+#  created_at  :datetime        
+#  updated_at  :datetime        
 #
 
 class Membership < ActiveRecord::Base

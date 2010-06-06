@@ -1,13 +1,13 @@
 # == Schema Information
-# Schema version: 20080819173849
+# Schema version: 20090218124612
 #
 # Table name: company_people
 #
-#  id               :integer(4)      not null, primary key
-#  person_id        :integer(4)      
-#  company_id       :integer(4)      
-#  created_at       :datetime        
-#  updated_at       :datetime        
+#  id         :integer(4)      not null, primary key
+#  person_id  :integer(4)      
+#  company_id :integer(4)      
+#  created_at :datetime        
+#  updated_at :datetime        
 #
 
 class CompanyPerson < ActiveRecord::Base

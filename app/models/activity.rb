@@ -1,15 +1,16 @@
 # == Schema Information
-# Schema version: 20080916002106
+# Schema version: 20090218124612
 #
 # Table name: activities
 #
 #  id         :integer(4)      not null, primary key
 #  public     :boolean(1)      
 #  item_id    :integer(4)      
-#  person_id  :integer(4)      
 #  item_type  :string(255)     
 #  created_at :datetime        
 #  updated_at :datetime        
+#  owner_id   :integer(4)      
+#  owner_type :string(255)     
 #
 
 class Activity < ActiveRecord::Base

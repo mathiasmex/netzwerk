@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080916002106
+# Schema version: 20090218124612
 #
 # Table name: preferences
 #
@@ -15,6 +15,8 @@
 #  app_name            :string(255)     
 #  about               :text            
 #  demo                :boolean(1)      
+#  node_number         :integer(4)      default(3), not null
+#  number_of_companies :integer(4)      default(3), not null
 #  sidebar_title       :string(255)     
 #  sidebar_body        :text            
 #  whitelist           :boolean(1)      

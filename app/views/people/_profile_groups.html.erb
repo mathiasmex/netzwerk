@@ -1,14 +1,15 @@
 <%- column_div :type => :primary do -%>
-  <h2><%= @person.name %>'s Groups</h2>
+  <h2><%=t ('group.group_person', :person => @person.name) %></h2>
+
   <% if current_person?(@person) %>
-    <%= link_to "Add Group", new_group_path() %>
+    <%= link_to t('group.add_group'), new_group_path() %>
   <% end %>
   <%= render :partial => 'groups', 
              :locals => {:groups => @groups, :some_groups => @some_groups,
-                :title => "Joined Groups", :link => "groups"} %>
+                :title => t('group.joined_groups'), :link => "groups"} %>
   <%= render :partial => 'groups', 
              :locals => {:groups => @own_groups, :some_groups => @some_own_groups,
-                :title => "Admin Groups", :link => "admin"} %>
+                :title => t('group.admin_groups'), :link => "admin"} %>
   
 <%- end -%>
 

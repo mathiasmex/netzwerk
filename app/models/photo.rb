@@ -1,14 +1,12 @@
 # == Schema Information
-# Schema version: 20080916002106
+# Schema version: 20090218124612
 #
 # Table name: photos
 #
 #  id           :integer(4)      not null, primary key
-#  person_id    :integer(4)      
 #  parent_id    :integer(4)      
 #  content_type :string(255)     
 #  filename     :string(255)     
-#  thumbnail    :string(255)     
 #  size         :integer(4)      
 #  width        :integer(4)      
 #  height       :integer(4)      
@@ -19,6 +17,8 @@
 #  gallery_id   :integer(4)      
 #  title        :string(255)     
 #  position     :integer(4)      
+#  owner_id     :integer(4)      
+#  owner_type   :string(255)     
 #
 
 class Photo < ActiveRecord::Base

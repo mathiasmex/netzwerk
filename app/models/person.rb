@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080916002106
+# Schema version: 20090218124612
 #
 # Table name: people
 #
@@ -24,8 +24,12 @@
 #  wall_comment_notifications :boolean(1)      default(TRUE)
 #  blog_comment_notifications :boolean(1)      default(TRUE)
 #  email_verified             :boolean(1)      
+#  phone                      :integer(4)      
 #  avatar_id                  :integer(4)      
 #  identity_url               :string(255)     
+#  lat                        :float           default(0.0)
+#  lng                        :float           default(0.0)
+#  full_address               :string(255)     
 #
 
 class Person < ActiveRecord::Base
