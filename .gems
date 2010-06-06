@@ -1,1 +1,1 @@
-geokit --source git://github.com/andre/geokit-rails.git
+geokit --source github.com/andre/geokit-gem.git
