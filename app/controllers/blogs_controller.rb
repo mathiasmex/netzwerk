@@ -11,4 +11,5 @@ class BlogsController < ApplicationController
       format.html
     end
   end
+
 end

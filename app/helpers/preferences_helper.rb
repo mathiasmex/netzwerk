@@ -10,4 +10,5 @@ module PreferencesHelper
     return Preference.find(:first) if test?
     @global_prefs ||= Preference.find(:first)
   end
+
 end

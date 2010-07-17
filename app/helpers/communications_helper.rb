@@ -1,4 +1,5 @@
 module CommunicationsHelper
+
   def contact_links(requested_contacts)
     requested_contacts.map do |contact|
       conn = Connection.conn(current_person, contact)
@@ -9,4 +10,5 @@ module CommunicationsHelper
   def message_anchor(message)
     "message_#{message.id}"
   end
+
 end

@@ -29,4 +29,5 @@ class PasswordRemindersController < ApplicationController
         redirect_to home_url
       end
     end
+
 end

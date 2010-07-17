@@ -12,6 +12,7 @@ class CreateCommunications < ActiveRecord::Migration
       t.datetime :recipient_read_at
       t.datetime :replied_at
       t.string   :type
+
       t.timestamps
     end
     add_index :communications, :type

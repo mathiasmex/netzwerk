@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+
   helper :all # include all helpers, all the time
   include AuthenticatedSystem
   include SharedHelper
@@ -13,7 +14,7 @@ class ApplicationController < ActionController::Base
                 :admin_warning, :set_locale
  
   # See ActionController::RequestForgeryProtection for details
-  # Uncomment the :secret if you're not using the cookie session store
+  # Uncomment the :secret if you are not using the cookie session store
   protect_from_forgery # :secret => '71a8c82e6d248750397d166001c5e308'
 
   private

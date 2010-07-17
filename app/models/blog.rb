@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090218124612
+# Schema version: 53
 #
 # Table name: blogs
 #

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090218124612
+# Schema version: 53
 #
 # Table name: connections
 #
@@ -113,7 +113,7 @@ class Connection < ActiveRecord::Base
     end
     
     def pending?(person, contact)
-      exist?(person, contact) and conn(contact,person).status == PENDING
+      exist?(person, contact) and conn(contact, person).status == PENDING
     end
   end
   

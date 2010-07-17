@@ -13,4 +13,5 @@ module MessagesHelper
       image_tag("icons/email_go.png", :class => "icon")
     end
   end
+
 end

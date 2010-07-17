@@ -9,6 +9,7 @@ class CreatePeople < ActiveRecord::Migration
       t.integer  :forum_posts_count, :null => false, :default => 0
       t.integer  :blog_post_comments_count, :null => false, :default => 0
       t.integer  :wall_comments_count, :null => false, :default => 0
+
       t.timestamps
     end
     add_index :people, :email

@@ -1,5 +1,3 @@
-
-
 class ActiveRecord::Base
   
   # Allow skipping of specific callbacks.

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090218124612
+# Schema version: 53
 #
 # Table name: posts
 #
@@ -15,7 +15,7 @@
 #
 
 class ForumPost < Post
-  is_indexed :fields => [ 'body' ],
+  is_indexed :fields => ['body'],
              :conditions => "type = 'ForumPost'",
              :include => [{:association_name => 'topic', :field => 'name'}]
 

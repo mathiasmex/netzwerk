@@ -19,4 +19,5 @@ class Admin::GroupsController < ApplicationController
       format.html { redirect_to(admin_groups_path) }
     end
   end
+
 end

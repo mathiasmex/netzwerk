@@ -38,7 +38,6 @@ ActionController::Routing::Routes.draw do |map|
                                   :action => "create",
                                   :requirements => { :method => :get }
   map.resource :session
-  map.resource :galleries
   map.resources :messages, :collection => { :sent => :get, :trash => :get },
                            :member => { :reply => :get, :undestroy => :put }
 

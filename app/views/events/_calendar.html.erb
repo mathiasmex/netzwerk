@@ -1,7 +1,7 @@
 <h2><%=t ('event.calendar') %></h2>
 <% special_days = events.collect { |x| x.start_time.to_date }.uniq -%>
 <%= 
-  calendar(:year => date.year, :month => date.month,  :first_day_of_week => 1,
+  calendar(:year => date.year, :month => date.month, :first_day_of_week => 1,
            :accesible => true, :abbrev => 0..1,
            :next_month_text => (link_to t('date.next_month',
                                :month_name => h(abbr_monthname(date.month+1))),

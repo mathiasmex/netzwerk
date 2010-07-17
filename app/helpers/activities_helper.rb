@@ -66,11 +66,11 @@ module ActivitiesHelper
       end
     when "Event"
       # TODO: make recent/long versions for this
-      event = activity.item.commentable
-      commenter = activity.item.commenter
-      t 'comment.person_commented_on_organizer_event', 
+      event = activity.item
+      commenter = activity.item.person
+      t 'event.person_created_the_event', 
                  :person => person_link_with_image(commenter), 
-                 :organizer => someones(event.person, commenter), 
+                 :startdate => event.start_time.to_date, 
                  :event => event_link(event.title, event)
     when "Connection"
       if activity.item.contact.admin?
@@ -141,11 +141,11 @@ module ActivitiesHelper
       event = activity.item
       if recent
         t 'event.created_event',
-                 :event => event_link(event.title, event)
+                 :event => event_link(activity.item)
       else
         t 'event.owner_created_event',
-                 :owner => person_link_with_image(owner),
-                 :event => event_link(event.title, event)
+                 :owner => person_link_with_image(person),
+                 :event => event_link(activity.item)
       end
     when "EventAttendee"
       event = activity.item.event
@@ -252,10 +252,13 @@ module ActivitiesHelper
                :photo => photo_link(activity.item),
                :photo_str => t('photo.photo'),
                :gallery => to_gallery_link(activity.item.gallery)
+      t 'person.persons_description_changed',
+                :person => person_link(owner)
     when "Event"
+      event = activity.item
       t 'event.person_created_event',
                :person => person_link(owner),
-               :event => event_link(activity.item)
+               :event => event_link(event.title, activity.item)
     when "EventAttendee"
       event = activity.item.event
       t 'event.person_attending_organizer_event',
@@ -431,4 +434,5 @@ module ActivitiesHelper
     def activity_type(activity)
       activity.item.class.to_s      
     end
+
 end

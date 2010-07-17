@@ -1,6 +1,6 @@
 module GroupsHelper
   
-  def group_owner?(person,group)
+  def group_owner?(person, group)
     person == group.owner
   end
   
@@ -26,8 +26,7 @@ module GroupsHelper
     end
     link_to(content, link, link_options)
   end
-  
-  
+    
   def group_link(group)
     link_to(group.name, group_path(group))
   end
@@ -39,5 +38,5 @@ module GroupsHelper
     modes << ["Hidden", 2]
     return modes
   end
-  
+
 end

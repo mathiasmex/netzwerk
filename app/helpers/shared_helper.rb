@@ -14,4 +14,5 @@ module SharedHelper
   def is_member_of?(group)
     group.owner?(current_person) or Membership.accepted?(current_person, group)
   end
+
 end

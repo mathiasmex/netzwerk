@@ -10,7 +10,7 @@
     <%= link_to image_tag(photo.public_filename(:thumbnail)),
                 '#gpu' + photo_id(photo), :rel => 'facebox' %>
   </div>
-  <%- if current_person?(photo.owner) -%>
+  <%- if current_person?(photo.owner) or current_person.own_groups.include?(photo.owner) -%>
   <div class='gallPhotoMeta'>
       <%= link_to image_tag("icons/picture_edit.png", :class => 'actioner'), 
                   edit_photo_path(photo),
@@ -18,7 +18,7 @@
       <%= link_to image_tag("icons/picture_delete.png", :class => 'actioner'), 
                   photo_path(photo),
                   :method => :delete,
-                  :confirm => t('photo.delete_photo_coformation'),
+                  :confirm => t('photo.delete_photo_confirmation'),
                   :title => t('photo.delete_photo') %>
       <% text = photo.owner_type == "Person" ? 
                 t('photo.select_person_profile_photo') : t('photo.select_group_profile_photo') %>

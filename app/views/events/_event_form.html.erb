@@ -56,7 +56,7 @@
 <%= javascript_include_tag 'ui.core.js' %>
 <%= javascript_include_tag 'ui.datepicker.js' %>
 <%# FIXME: change the next line to become a property%>
-<%= javascript_include_tag 'i18n/ui.datepicker-es.js' %>
+<%= javascript_include_tag 'i18n/ui.datepicker-de.js' %>
 <%= javascript_include_tag 'gmaps.js' %>
 
 <script type='text/javascript'>
@@ -77,7 +77,7 @@ $(document).ready(function(){
     //set defaults to all datepickers
     $.datepicker.setDefaults({
       onSelect:change_time,
-      altFormat: 'yy-mm-dd'
+      altFormat: 'dd-mm-yy'
     });
 
     $('#date_start').val($('#event_start_time').datepicker("getDate"));

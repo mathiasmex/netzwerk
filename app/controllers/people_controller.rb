@@ -1,10 +1,10 @@
 class PeopleController < ApplicationController
   
   skip_before_filter :require_activation, :only => :verify_email
-  skip_before_filter :admin_warning, :only => [ :show, :update ]
-  before_filter :login_required, :only => [ :show, :edit, :update,
-                                            :common_contacts ]
-  before_filter :correct_user_required, :only => [ :edit, :update, :invitations ]
+  skip_before_filter :admin_warning, :only => [:show, :update]
+  before_filter :login_required, :only => [:show, :edit, :update,
+                                           :common_contacts]
+  before_filter :correct_user_required, :only => [:edit, :update, :invitations]
   before_filter :setup
   
   def index
@@ -38,7 +38,7 @@ class PeopleController < ApplicationController
       @own_groups = current_person == @person ? @person.own_groups : @person.own_not_hidden_groups
       @some_own_groups = @own_groups[0...num_contacts]
       @events = @person.geolocated? ?
-        Event.monthly_events(Time.now).find(:all, :origin => [@person.lat,@person.lng], :within => params[:within] || 100) : []
+      Event.monthly_events(Time.now).find(:all, :origin => [@person.lat,@person.lng], :within => params[:within] || 100) : []
     end
     respond_to do |format|
       format.html

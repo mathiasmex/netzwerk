@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 #TODO: Write tests about permissions
 describe EventsController do
-  
+
   before(:each) do
     @person = login_as(:aaron)
   end
@@ -34,7 +34,7 @@ describe EventsController do
       get :index
       response.should render_template('index')
     end
-  
+
     it "should find monthly events" do
       events = mock("Array of Events")
       Event.should_receive(:monthly_events).with(Time.now.to_date).and_return(events)
@@ -49,7 +49,6 @@ describe EventsController do
       get :index, :day => Time.now.mday
     end
 
-  
     it "should assign the found events for the view" do
       Event.should_receive(:find).and_return([mock_event])
       get :index
@@ -76,17 +75,17 @@ describe EventsController do
       response.should be_success
       response.should render_template('show')
     end
-  
+
     it "should render the 'show' template" do
       Event.stub!(:find).and_return(mock_event)
       get :show, :id => "1"
     end
-  
+
     it "should find the requested event" do
       Event.should_receive(:find).with("37").and_return(mock_event)
       get :show, :id => "37"
     end
-  
+
     it "should assign the found event for the view" do
       Event.should_receive(:find).and_return(mock_event)
       get :show, :id => "1"
@@ -109,7 +108,7 @@ describe EventsController do
       get :show, :id => "1"
       response.should be_redirect
     end
-    
+
   end
 
   describe "responding to GET /events/1.xml" do
@@ -117,18 +116,18 @@ describe EventsController do
     before(:each) do
       request.env["HTTP_ACCEPT"] = "application/xml"
     end
-  
+
     it "should succeed" do
       Event.stub!(:find).and_return(mock_event)
       get :show, :id => "1"
       response.should be_success
     end
-  
+
     it "should find the event requested" do
       Event.should_receive(:find).with("37").and_return(mock_event)
       get :show, :id => "37"
     end
-  
+
     it "should render the found event as xml" do
       Event.should_receive(:find).and_return(mock_event)
       mock_event.should_receive(:to_xml).and_return("generated XML")
@@ -144,17 +143,17 @@ describe EventsController do
       get :new
       response.should be_success
     end
-  
+
     it "should render the 'new' template" do
       get :new
       response.should render_template('new')
     end
-  
+
     it "should create a new event" do
       Event.should_receive(:new)
       get :new
     end
-  
+
     it "should assign the new event for the view" do
       Event.should_receive(:new).and_return(mock_event)
       get :new
@@ -176,12 +175,12 @@ describe EventsController do
       get :edit, :id => "1"
       response.should render_template('edit')
     end
-  
+
     it "should find the requested event" do
       Event.should_receive(:find).with("37").and_return(mock_event)
       get :edit, :id => "37"
     end
-  
+
     it "should assign the found Event for the view" do
       Event.should_receive(:find).and_return(mock_event)
       get :edit, :id => "1"
@@ -193,7 +192,7 @@ describe EventsController do
   describe "responding to POST /events" do
 
     describe "with successful save" do
-  
+
       it "should create a new event" do
         Event.should_receive(:new).with({'these' => 'params','person' => @person}).and_return(mock_event)
         post :create, :event => {:these => 'params'}

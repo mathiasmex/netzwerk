@@ -33,8 +33,8 @@ module SearchesHelper
       dir  = "topics" 
       part = "search_result"
     when "AllPerson"
-      dir  = 'people'
-      part = 'person'
+      dir  = "people"
+      part = "person"
     else
       dir  = klass.tableize  # E.g., 'Person' becomes 'people'
       part = dir.singularize # E.g., 'people' becomes 'person'
@@ -47,4 +47,5 @@ module SearchesHelper
     def admin_search?
       params[:model] =~ /Admin/
     end
+
 end

@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+
   before_filter :login_required
   before_filter :group_owner, :only => [:edit, :update, :destroy, 
                               :new_photo, :save_photo, :delete_photo]
@@ -135,7 +136,7 @@ class GroupsController < ApplicationController
       redirect_to(edit_group_path(group)) and return
     end
     if params[:commit] == "Cancel"
-      flash[:notice] = t('flash.canceled_upload')
+      flash[:notice] = t('flash.cancelled_upload')
       redirect_to(edit_group_path(group)) and return
     end
     
@@ -189,5 +190,5 @@ class GroupsController < ApplicationController
       end
     end
   end
-  
+
 end

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090218124612
+# Schema version: 53
 #
 # Table name: posts
 #
@@ -20,5 +20,4 @@ class Post < ActiveRecord::Base
   has_many :activities, :foreign_key => "item_id", :dependent => :destroy,
                         :conditions => "item_type = 'Post'"
   attr_accessible nil
-
 end

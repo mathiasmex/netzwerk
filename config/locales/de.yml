@@ -15,8 +15,8 @@ de:
     month_names: [~, Januar, Februar, M&auml;rz, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
     abbr_month_names: [~, Jan, Feb, M&auml;r, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
     order: [ :day, :month, :year ]
-    next_month:        "{{month_name}}"
-    previous_month:    "{{month_name}}"
+    next_month:        "%{month_name}"
+    previous_month:    "%{month_name}"
  
   time:
     formats:
@@ -34,35 +34,35 @@ de:
       less_than_x_seconds:
         zero: 'weniger als 1 Sekunde'
         one: 'weniger als 1 Sekunde'
-        other: 'weniger als {{count}} Sekunden'
+        other: 'weniger als %{count} Sekunden'
       x_seconds:
-        one: '1 Sekunde'
-        other: '{{count}} Sekunden'
+        one: 'vor 1 Sekunde'
+        other: 'vor %{count} Sekunden'
       less_than_x_minutes:
         zero: 'weniger als 1 Minute'
         one: 'weniger als eine Minute'
-        other: 'weniger als {{count}} Minuten'
+        other: 'weniger als %{count} Minuten'
       x_minutes:
-        one: '1 Minute'
-        other: '{{count}} Minuten'
+        one: 'vor 1 Minute'
+        other: 'vor %{count} Minuten'
       about_x_hours:
         one: 'vor 1 Stunde'
-        other: 'vor {{count}} Stunden'
+        other: 'vor %{count} Stunden'
       x_days:
-        one: 'Vor 1 Tag'
-        other: 'vor {{count}} Tagen'
+        one: 'vor 1 Tag'
+        other: 'vor %{count} Tagen'
       about_x_months:
         one: 'etwa 1 Monat'
-        other: 'etwa {{count}} Monate'
+        other: 'etwa %{count} Monate'
       x_months:
-        one: '1 Monat'
-        other: '{{count}} Monate'
+        one: 'vor 1 Monat'
+        other: 'vor %{count} Monate'
       about_x_years:
         one: 'etwa 1 Jahr'
-        other: 'etwa {{count}} Jahre'
+        other: 'etwa %{count} Jahre'
       over_x_years:
         one: 'mehr als 1 Jahr'
-        other: 'mehr als {{count}} Jahre'
+        other: 'mehr als %{count} Jahre'
     prompts:
       second: "Sekunden"
       minute: "Minuten"
@@ -116,8 +116,8 @@ de:
     errors:
       template:
         header:
-          one:    "Konnte dieses {{model}} Objekt nicht speichern: 1 Fehler."
-          other:  "Konnte dieses {{model}} Objekt nicht speichern: {{count}} Fehler."
+          one:    "Konnte dieses %{model} Objekt nicht speichern: 1 Fehler."
+          other:  "Konnte dieses %{model} Objekt nicht speichern: %{count} Fehler."
         body: "Bitte &uuml;berpr&uuml;fen Sie die folgenden Felder:"
 
       messages:
@@ -128,19 +128,19 @@ de:
         accepted: "muss akzeptiert werden"
         empty: "muss ausgef&uuml;llt werden"
         blank: "muss ausgef&uuml;llt werden"
-        too_long: "ist zu lang (nicht mehr als {{count}} Zeichen)"
-        too_short: "ist zu kurz (mindestens {{count}} Zeichen)"
-        wrong_length: "hat die falsche L&auml;nge (muss genau {{count}} Zeichen haben)"
+        too_long: "ist zu lang (nicht mehr als %{count} Zeichen)"
+        too_short: "ist zu kurz (mindestens %{count} Zeichen)"
+        wrong_length: "hat die falsche L&auml;nge (muss genau %{count} Zeichen haben)"
         taken: "ist bereits vergeben"
         not_a_number: "ist keine Zahl"
-        greater_than: "muss gr&ouml;&szlig;er als {{count}} sein"
-        greater_than_or_equal_to: "muss gr&ouml;&szlig;er oder gleich {{count}} sein"
-        equal_to: "muss genau {{count}} sein"
-        less_than: "muss kleiner als {{count}} sein"
-        less_than_or_equal_to: "muss kleiner oder gleich {{count}} sein"
+        greater_than: "muss gr&ouml;&szlig;er als %{count} sein"
+        greater_than_or_equal_to: "muss gr&ouml;&szlig;er oder gleich %{count} sein"
+        equal_to: "muss genau %{count} sein"
+        less_than: "muss kleiner als %{count} sein"
+        less_than_or_equal_to: "muss kleiner oder gleich %{count} sein"
         odd: "muss ungerade sein"
         even: "muss gerade sein"
-        record_invalid: "G&uuml;ltigkeitspr&uuml;fung ist fehlgeschlagen: {{errors}}"
+        record_invalid: "G&uuml;ltigkeitspr&uuml;fung ist fehlgeschlagen: %{errors}"
       models:
 
   global:
@@ -161,7 +161,7 @@ de:
     show:              "Anzeigen"
     back:              "Zur&uuml;ck"
     the_site:          "Die Seite"
-    ago:               "{{time_ago}}"
+    ago:               "%{time_ago}"
     demo_site:         "Dies ist eine Seite zu Demonstrationszwecken.<br/>
                         Daten k&ouml;nnen ohne Warnung ge&auml;ndert oder gel&ouml;scht werden."
     automated_message: "Bitte beachten: Dies ist eine automatisch generierte Nachricht.<br />
@@ -180,16 +180,16 @@ de:
     delete_activity_confirmation: "Soll diese Aktivit&ouml;t wirklich aus dem Profil gel&ouml;scht werden?"
     delete_activity:              "Diese Aktivit&auml;t l&ouml;schen"
     just_joined:                  "ist dem Netzwerk beigetreten"
-    person_joined:                "{{person}} ist dem Netzwerk beigetreten"
-    invalid_activity_type:        "Ung&uuml;ltiger Aktivit&auml;tentype {{activity}}"
+    person_joined:                "%{person} ist dem Netzwerk beigetreten"
+    invalid_activity_type:        "Ung&uuml;ltiger Aktivit&auml;tentype %{activity}"
   
   comment:
     one:                                 "1 Kommentar"
-    other:                               "{{count}} Kommentare"
+    other:                               "%{count} Kommentare"
     blog_comment:                        "Blog Kommentar"
     wall_comment:                        "Pinnwand Kommentar"
-    new_blog_comment_notification:       "Es gibt einen neuen Kommentar von {{person}} im Blog:"
-    new_wall_comment_notification:       "Es gibt einen neuen Kommentar von {{person}} an der Pinnwand:"
+    new_blog_comment_notification:       "Es gibt einen neuen Kommentar von %{person} im Blog:"
+    new_wall_comment_notification:       "Es gibt einen neuen Kommentar von %{person} an der Pinnwand:"
     listing_comments:                    "Kommentare auflisten"
     leave_a_comment:                     "Kommentar hinterlassen"
     delete_wall_comment:                 "Pinnwand-Kommentar l&ouml;schen"
@@ -200,27 +200,27 @@ de:
     blog:                                "Blog"
     body:                                "Text"
     type:                                "Type"
-    person_posted_comment:               "{{person}} hat einen Kommentar geschrieben"
+    person_posted_comment:               "%{person} hat einen Kommentar geschrieben"
     comments:                            "Kommentare"
     delete_comment:                      "Kommentar l&ouml;schen"
     delete_comment_confirmation:         "Kommentar l&ouml;schen best&auml;tigen"
-    to_persons_blog_post:                "hat einen Kommentar zu {{person}} Blogeintrag {{blog_post}} gemacht"
-    to_owners_blog_post:                  "hat einen Kommentar zu {{owner}} Blogeintrag {{blog_post}} gemacht"
-    author_to_persons_blog_post:         "{{author}} hat einen Kommentar zu {{person}} {{person_blog_post}} {{blog_post}} gemacht"
-    author_to_owners_blog_post:          "{{author}} hat einen Kommentar zu {{owner}} {{owner_blog_post}} {{blog_post}} gemacht"
-    commented_on_activity:               "hat {{activity}} kommentiert"
-    person_commented_on_activity:        "{{person}} hat {{activity}} kommentiert"
-    commented_on_group_activity:         "hat {{activity}} kommentiert"
-    person_commented_on_group_activity:  "{{person}} hat {{activity}} kommentiert"
-    commented_on_organizer_event:        "hat {{organizer}} Veranstaltung {{event}} kommentiert" 
-    person_commented_on_organizer_event: "{{person}} hat {{organizer}} Veranstaltung {{event}} kommentiert" 
+    to_persons_blog_post:                "hat einen Kommentar zu %{person} Blogeintrag %{blog_post} gemacht"
+    to_owners_blog_post:                  "hat einen Kommentar zu %{owner} Blogeintrag %{blog_post} gemacht"
+    author_to_persons_blog_post:         "%{author} hat einen Kommentar zu %{person} %{person_blog_post} %{blog_post} gemacht"
+    author_to_owners_blog_post:          "%{author} hat einen Kommentar zu %{owner} %{owner_blog_post} %{blog_post} gemacht"
+    commented_on_activity:               "hat %{activity} kommentiert"
+    person_commented_on_activity:        "%{person} hat %{activity} kommentiert"
+    commented_on_group_activity:         "hat %{activity} kommentiert"
+    person_commented_on_group_activity:  "%{person} hat %{activity} kommentiert"
+    commented_on_organizer_event:        "hat %{organizer} Veranstaltung %{event} kommentiert" 
+    person_commented_on_organizer_event: "%{person} hat %{organizer} Veranstaltung %{event} kommentiert" 
     wall_comments:                       "Pinnwand-Kommentare"
     blog_comments:                       "Blog Kommentare"
     
   connection:
     contact_request:                "Kontaktanfrage"
     contact_requests:               "Kontaktanfragen"
-    contact_request_from:           "Es gibt eine Kontaktanfrage von {{name}}"
+    contact_request_from:           "Es gibt eine Kontaktanfrage von %{name}"
     respond:                        "Beantworten"
     accept:                         "Akzeptieren"
     decline:                        "Ablehnen"
@@ -234,21 +234,22 @@ de:
     connected_notice:               "Ihr seid vernetzt!"
     remove_connection:              "Verbindung trennen"
     remove_connection_confirmation: "Soll diese Verbindung wirklich getrennt werden?"
-    contacted_you:                  "{{person}} hat Kontakt aufgenommen"
+    contacted_you:                  "%{person} hat Kontakt aufgenommen"
     respond_to_request:             "Kontaktanfrage beantworten"
-    you_contacted:                  "{{person}} wurde kontaktiert"
-    must_be_connected_notice:       "es muss eine Verbindung zu {{person}} bestehen,
+    you_contacted:                  "%{person} wurde kontaktiert"
+    must_be_connected_notice:       "es muss eine Verbindung zu %{person} bestehen,
                                      um einen Kommentar auf der Pinnwand zu hinterlassen."
-    connect_now:                    "Verbindung mit {{person}} jetzt herstellen"
-    new_request_notification:       "Es ist eine neue Kontaktanfrage von {{person}} angekommen"
-    connected_with_person:          "{{connected_with}} mit {{person}}"
-    persons_have_connected:         "{{person1}} und {{person2}} haben sich vernetzt"
+    connect_now:                    "Verbindung mit %{person} jetzt herstellen"
+    new_request_notification:       "Es ist eine neue Kontaktanfrage von %{person} angekommen"
+    connected_with_person:          "%{connected_with} mit %{person}"
+    persons_have_connected:         "%{person1} und %{person2} haben sich vernetzt"
     
   event:
     calendar:                         "Kalender"
-    person_created_event:             "{{person}} hat eine neue Veranstaltung erstellt: {{event}}"
-    person_attending_organizer_event: "{{person}} nimmt an {{organizer}} Veranstaltung {{event}} teil"
-    attending_organizer_event:        "nimmt an {{organizer}} Veranstaltung {{event}} teil"
+    person_created_event:             "%{person} hat eine neue Veranstaltung erstellt: %{event}"
+    person_created_the_event:         "%{person} hat die Veranstaltung %{event} erstellt, welche am %{startdate} startet"
+    person_attending_organizer_event: "%{person} nimmt an %{organizer} Veranstaltung %{event} teil"
+    attending_organizer_event:        "nimmt an %{organizer} Veranstaltung %{event} teil"
     events:                           "Veranstaltungen"
     show_all_events:                  "Alle Veranstaltungen anzeigen"
     location:                         "Veranstaltungsort:"
@@ -262,7 +263,7 @@ de:
     reminder:                         "Erinnern?"
     privacy:                          "&Ouml;ffentlich? (Bitte ausw&auml;hlen)"
     public:                           "Öffentlich"
-    my_contacts:                      "Nur für meine Kontakte"
+    my_contacts:                      "Nur f&uuml;r meine Kontakte"
     geolocate:                        "Lokalisieren"
     new_event:                        "Neue Veranstaltung"
     attendees:
@@ -291,22 +292,22 @@ de:
     at_least_one_forum:                 "es muss mindestens ein Forum eingetragen sein."
     group_deleted:                      "Initiative wurde erfolgreich gel&ouml;scht."
     action_failed:                      "Aktion konnte nicht ausgef&uuml;hrt werden"
-    person_updated:                     "{{person}} aktualisiert"
+    person_updated:                     "%{person} aktualisiert"
     prefs_updated:                      "Einstellungen erfolgreich aktualisiert."
     restart_server:                     "Bitte den Server neu starten, um die &Auml;derungen zu aktivieren"
     admin_access_required:              "Hierf&uuml;r werden Administratorrechte ben&ouml;tigt"
-    email_is_default:                   "{{warning}}: die Email Adresse ist immer noch {{default_domain}}!<br />
-                                         <a href=\"{{edit_person}}\">Hier &auml;ndern</a>."
-    password_is_default:                "{{warning}}: das Passwort ist immer noch die Voreinstellung!<br />
-                                         <a href=\"{{edit_person}}\">hier &auml;ndern</a>."
+    email_is_default:                   "%{warning}: die Email Adresse ist immer noch %{default_domain}!<br />
+                                         <a href=\"%{edit_person}\">Hier &auml;ndern</a>."
+    password_is_default:                "%{warning}: das Passwort ist immer noch die Voreinstellung!<br />
+                                         <a href=\"%{edit_person}\">hier &auml;ndern</a>."
     comment_created:                    "Kommentar erfolgreich erstellt."
     comment_destroyed:                  "Kommentar erfolgreich entfernt."
     must_be_contacts:                   "es muss eine Verbindung bestehen, um diese Aktion auszuf&uuml;hren."
     connection_request_sent:            "Anfrage der Verbingung abgeschickt!"
     invalid_connection:                 "Ung&uuml;ltige Verbindung"
-    accepted_connection:                "<a href=\"{{person_link}}\">{{person_name}}</a> hat die Verbindung akzeptiert"
-    declined_connection:                "Verbindung wurde von {{person_name}} abgelehnt"
-    ended_connection:                   "Verbindung wurde von {{person_name}} beendet"
+    accepted_connection:                "<a href=\"%{person_link}\">%{person_name}</a> hat die Verbindung akzeptiert"
+    declined_connection:                "Verbindung wurde von %{person_name} abgelehnt"
+    ended_connection:                   "Verbindung wurde von %{person_name} beendet"
     invalid_expired_connection_request: "Ung&uuml;ltige oder abgelaufene Anfrage f&uuml;r die Verbindung"
     invalid_request_person_deactivated: "Ung&uuml;ltige Verbindungsanfrage: Die Person wurde deaktiviert"
     event_created:                      "Veranstaltung wurde erfolgreich erstellt."
@@ -326,14 +327,15 @@ de:
     no_more_companies:                  "Es k&ouml;nnen keine Firmen mehr hinzugef&uuml;gt werden."
     company_deleted:                    "Firma wurde erfolgreich gel&ouml;scht."
     browser_does_not_support_uploading: "Der Browser unterst&uuml;tzt kein Hochladen von Dateien"
-    canceled_upload:                    "Das Hochladen wurde abgebrochen"
+    cancelled_upload:                   "Das Hochladen wurde abgebrochen"
     photo_scessfully_uploaded:          "Das Foto wurde erfolgreich hochgeladen"
-    photo_deleted_for_group:            "Das Foto der Initiative {{group}} erfolgreich gel&ouml;scht"
+    photo_deleted_for_group:            "Das Foto der Initiative %{group} erfolgreich gel&ouml;scht"
     group_created:                      "Initiative wurde erfolgreich erstellt"
     group_updated:                      "Initiative wurde erfolgreich aktualisiert"
     group_destroyed:                    "Initiative wurde erfolgreich gel&ouml;scht"
     group_no_contacts_or_invited_all:   "Es sind keine Kontakte vorhanden oder es wurden bereits alle eingeladen"
-    group_invited_some_contacts:        "Kontakte wurden in die Initiative {{name}} eingeladen"
+    group_invited_some_contacts:        "Kontakte wurden in die Initiative ${name} eingeladen"
+    joined_to_group:                    "Der Initiative %{group} beigetreten"
     message_sent:                       "Nachricht geschickt!"
     message_trashed:                    "Die Nachricht ist im Papierkorb gelandet"
     invalid_action:                     "Ung&uuml;tige Aktion"
@@ -342,7 +344,7 @@ de:
     password_sent:                      "Das Passwort wurde zugeschickt"
     person_not_active:                  "Diese Person ist nicht aktiv"
     thanks_sign_up_verify_email:        "Danke f&uuml;r die Registrierung!<br />
-                                         Bitte Email Posteingang pr&uum;fen, um das Benutzerkonto zu aktivieren."
+                                         Bitte Email Posteingang pr&uuml;fen, um das Benutzerkonto zu aktivieren."
     thanks_sign_up:                     "Danke f&uuml;r die Registrierung!"
     invalid_email_verification_code:    "Ung&uuml;ltiger Email Best&auml;tigungscode"
     verified_active:                    "Email best&auml;tigt. Das Konto ist aktiv!"
@@ -385,38 +387,39 @@ de:
     edit_forum:        "Forum bearbeiten"
     name:              "Name"
     description:       "Beschreibung"
-    forums:            "Foren"
-    topics_count:      "{{topics_count}} Themen"
+    forums:            "Forum"
+    forums_admin:      "Liste der Foren"
+    topics_count:      "%{topics_count} Themen"
     new_forum:         "Neues Forum"
-    new_forum_post:    "neuer Beitrag im Thema {{topic}}"
-    person_posted:     "{{person}} hat einen Beitrag zum Thema {{topic}} geschrieben"
-    forum_number:      "Forum {{number}}"
+    new_forum_post:    "neuer Beitrag im Thema %{topic}"
+    person_posted:     "%{person} hat einen Beitrag zum Thema %{topic} geschrieben"
+    forum_number:      "Forum %{number}"
     
   gallery:
     new_gallery:                 "Neue Gallerie"
     edit_gallery:                "Bearbeiten der Gallerie"
     title:                       "Titel"
     description:                 "Beschreibung"
-    photos_in_gallery:           "Fotos in der Gallerie {{gallery}}"
+    photos_in_gallery:           "Fotos in der Gallerie %{gallery}"
     edit_gallery:                "Gallerie bearbeiten"
     all_galleries:               "Alle Gallerien"
     no_photos_yet:               "(Noch) keine Fotos"
-    persons_galleries:           "{{person}}'s Gallerien"
+    persons_galleries:           "%{person}'s Gallerien"
     add_gallery:                 "Gallerie hinzuf&uuml;gen"
     delete_gallery_confirmation: "Sicher, das diese Gallerie gel&ouml;scht werden soll?"
     delete_gallery:              "Gallerie l&ouml;schen"
-    new_gallery_added:           "neue Gallerie {{gallery}} hinzugef&uuml;gt"
-    person_added_new_gallery:    "{{person}} hat die neue Gallerie {{gallery}} hinzugef&uuml;gt"
-    owner_added_new_gallery:     "{{owner}} hat die neue Gallerie {{gallery}} hinzugef&uuml;gt"
-    to_gallery:                  "zur Gallerie {{gallery}}"
+    new_gallery_added:           "neue Gallerie %{gallery} hinzugef&uuml;gt"
+    person_added_new_gallery:    "%{person} hat die neue Gallerie %{gallery} hinzugef&uuml;gt"
+    owner_added_new_gallery:     "%{owner} hat die neue Gallerie %{gallery} hinzugef&uuml;gt"
+    to_gallery:                  "zur Gallerie %{gallery}"
 
   group:
     new_group:                      "Neue Initiative anlegen"
     invitation_for_group:           "Einladung zur Initiative:"
     view_group:                     "Anschauen"
-    group_wall:                     "{{group}} Pinnwand"
-    person_created_group:           "{{person}} hat die Initiative {{group_link}} erstellt"
-    profile:                        "Profil der Initiative: <strong>{{group}}</strong>"
+    group_wall:                     "%{group} Pinnwand"
+    person_created_group:           "%{person} hat die Initiative %{group_link} erstellt"
+    profile:                        "Profil der Initiative: <strong>%{group}</strong>"
     description_blank_notice:       "Die Beschreibung fehlt."
     description_blank_link:         "Hier klicken, um eine Beschreibung hinzuzuf&uuml;gen"
     wall_tab:                       "Pinnwand"
@@ -428,7 +431,7 @@ de:
     edit_profile:                   "Profil bearbeiten"
     edit_members:                   "Mitglieder bearbeiten"
     description:                    "Beschreibung"
-    invite_your_contacts:           "Kontakte zur Initiative: <strong>{{group}}</strong> einladen"
+    invite_your_contacts:           "Kontakte zur Initiative: <strong>%{group}</strong> einladen"
     select_all:                     "Alle ausw&auml;hlen"
     deselect_all:                   "Auswahl aufheben"
     invite:                         "Einladen"
@@ -437,21 +440,21 @@ de:
     delete_membership_confirmation: "Sicher das die Mitgliedschaft dieser Person aufgehoben werden soll?"
     admin:                          "Administrator"
     join:                           "dieser Initiative beitreten"
-    join_now:                       "Initiative: {{group}} jetzt beitreten"
+    join_now:                       "Initiative: %{group} jetzt beitreten"
     you_are_invited:                "Du bist schon eingeladen"
     respond:                        "(antworten)"
-    you_are_group_member:           "Du bist Mitglied der Initiative <strong>{{group}}</strong>"
+    you_are_group_member:           "Du bist Mitglied der Initiative <strong>%{group}</strong>"
     leave_group:                    "Diese Initiative verlassen"
-    leave_group_confirmatin:        "Soll die Mitgliedschaft aus der Initiative {{group}} wirklich beendet werden?"
-    request_member_group:           "Es gibt ein Mitgliedsanfrage f&uuml;r die Inititative <strong>{{group}}</strong>"
-    members_for:                    "Mitglieder der Initiative: <strong>{{group}}</strong>"
+    leave_group_confirmatin:        "Soll die Mitgliedschaft aus der Initiative %{group} wirklich beendet werden?"
+    request_member_group:           "Es gibt ein Mitgliedsanfrage f&uuml;r die Inititative <strong>%{group}</strong>"
+    members_for:                    "Mitglieder der Initiative: <strong>%{group}</strong>"
     groups_admin:                   "Du bist Administrator dieser Initiative"
     delete_group:                   "Initiative l&ouml;schen"
-    person_joined:                  "{{person}} ist der Initiative beigetreten"
-    person_joined_group:            "{{person}} ist der Initiative: {{group_link}} beigetreten"
+    person_joined:                  "%{person} ist der Initiative beigetreten"
+    person_joined_group:            "%{person} ist der Initiative: %{group_link} beigetreten"
     mode:                           "Status:"
     invite_contacts:                "Kontakte einladen"
-    group_members:                  "Mitglieder der Initiative {{group}}"
+    group_members:                  "Mitglieder der Initiative %{group}"
     edit_all_members:               "Alle Mitglieder bearbeiten"
     all_members:                    "Alle Mitglieder"
     pending_request:                "Offene Anfragen"
@@ -459,12 +462,12 @@ de:
     admin:                          "Administrator"
     no_recent_activity:             "(Noch) keine Aktivit&auml;ten"
     no_members_yet:                 "(Noch) keine Mitglieder"
-    of_group:                       "der Initiative: <strong>{{group}}</strong>"
-    recent_activity:                "{{group}}'s j&uuml;ngste Aktivit&auml;ten"
-    comment_wall:                   "{{group}}'s Kommentar-Pinnwand"
-    must_be_member_notice:          "nur als Mitglied der Initiative: <strong>{{group}}</strong>
+    of_group:                       "der Initiative: <strong>%{group}</strong>"
+    recent_activity:                "%{group}'s j&uuml;ngste Aktivit&auml;ten"
+    comment_wall:                   "%{group}'s Kommentar-Pinnwand"
+    must_be_member_notice:          "nur als Mitglied der Initiative: <strong>%{group}</strong>
                                      kann ein Kommentar auf der Pinnwand hinterlassen werden."
-    group_person:                   "{{person}}'s Initiativen"
+    group_person:                   "%{person}'s Initiativen"
     add_group:                      "Neue Initiative hinzuf&uuml;gen"
 
   groups:
@@ -473,19 +476,21 @@ de:
     invitations_for_groups: "Einladungen zu Initiativen"
     see_all_groups:         "Alle Initiativen &raquo;"
     groups:                 "Initiativen"
+    groups_admin:           "Liste der Initiativen"
     no_groups_yet:          "(Noch) keine Initiativen"
 
   home:
     home:                   "Start"
     activity_feed:          "Aktivit&auml;ten &Uuml;bersicht"
     discussion_forum:       "Diskussions Forum"
-    last_post_ago_by:       "Letzter Beitrag vor {{ago}} von {{person}}"
+    last_post_ago_by:       "Letzter Beitrag vor %{ago} von %{person}"
     go_to_discussion_forum: "Zum Diskussions Forum &raquo;"
     activity:               "Aktivit&auml;t"
+    activities:             "Aktivitäten"
     unread_messages_notice: "Es sind ungelesenene Nachrichten im Posteingang."
     unread_messages_link:   "Hier klicken, um die Nachrichten zu lesen"
     about:                  "&Uuml;ber "
-    learn_more_about_us:    ", um mehr &uuml;ber {{the_site}} zu erfahren."
+    learn_more_about_us:    ", um mehr &uuml;ber %{the_site} zu erfahren."
     see_all_members:        "Alle Mitglieder &raquo;"
     dashboard:              "&Uuml;bersicht"
     my_messages:            "Nachrichten"
@@ -493,7 +498,7 @@ de:
     forum:                  "Forum"
     companies:              "Firmen"
     homepage:               "Homepage"
-    welcome:                "Willkommen, {{person}}!"
+    welcome:                "Willkommen, %{person}!"
     standard_view:          "Standard Ansicht"
     admin_view:             "Administrator Ansicht"
     minifeed:               "Mini&uuml;bersicht"
@@ -523,9 +528,9 @@ de:
     sent_by:                     "Empfangen von"
     received:                    "eingegangen"
     dispatched:                  "geschickt"
-    sent_to_recipient:           "Nachricht an {{recipient}} gesendet"
-    sent_by_sender:              "Nachricht empfangen von {{sender}}"
-    new_message_notification:    "Es gibt eine neue Nachricht auf {{domain}}! Hier klicken zum empfangen:"
+    sent_to_recipient:           "Nachricht an %{recipient} gesendet"
+    sent_by_sender:              "Nachricht empfangen von %{sender}"
+    new_message_notification:    "Es gibt eine neue Nachricht auf %{domain}! Hier klicken zum empfangen:"
     send_message:                "Nachricht senden"
     message_everyone:            "Nachricht an Alle"
     send_reply:                  "Antwort schicken"
@@ -543,8 +548,8 @@ de:
   person:
     join:                         "beitreten"
     view_profile:                 "Profil ansehen"
-    said:                         "{{person}} sagte"
-    created:                      "Erstellt von {{person}}"
+    said:                         "%{person} sagte vor"
+    created:                      "Erstellt von %{person}"
     common_contacts:              "Gemeinsame Kontakte"
     common_contacts_with:         "Gemeinsame Kontakte mit"
     no_contacts_in_common:        "Keine gemeinsamen Kontakte"
@@ -568,16 +573,16 @@ de:
     complete_verification:        "Hier klicken, um die Email Verifikation abzuschliessen:"
     name:                         "Name"
     will_be_displayed:            "(wird angezeigt)"
-    profile:                      "{{person}}'s Profil"
+    profile:                      "%{person}'s Profil"
     not_active:                   "Diese Person ist nicht aktiv"
     description_blank_notice:     "Die Beschreibung fehlt."
     description_blank_link:       "Hier klicken, um eine Beschreibung hinzuzuf&uuml;gen"
-    persons_contacts:             "{{person}}'s Kontakte"
+    persons_contacts:             "%{person}'s Kontakte"
     contacts:                     "Kontakte"
     see_all_contacts:             "Alle Kontakte &raquo;"
     no_recent_activity:           "Keine neueren Aktivit&auml;ten"
-    recent_activity:              "{{person}}'s j&uuml;ngste Aktivit&auml;ten"
-    last_logged_in:               "{{person}} zuletzt angemeldet"
+    recent_activity:              "%{person}'s j&uuml;ngste Aktivit&auml;ten"
+    last_logged_in:               "%{person} zuletzt angemeldet"
     profile_tab:                  "Profil"
     wall_tab:                     "Pinnwand"
     recent_activity_tab:          "Letzte Aktivit&auml;ten"
@@ -586,24 +591,25 @@ de:
     blog_tab:                     "Blog"
     galleries_tab:                "Gallerien"
     events_tab:                   "Veranstaltungen"
-    comment_wall:                 "{{person}}'s Kommentar-Pinnwand"
+    comment_wall:                 "%{person}'s Kommentar-Pinnwand"
     edit_personal_info:           "Pers&ouml;nliche Information"
     person_admin:                 "Mitglieder verwalten"
     demote_from_admin:            "beim Administrator zur&uuml;ckstufen"
     promote_to_admin:             "dem Administrator empfehlen"
+    people_admin:                 "Liste der Mitglieder"
     forum_posts:                  "Forum Beitr&auml;ge:"
     blog_posts:                   "Blogeintr&auml;ge:"
     connections:                  "Verbindungen:"
-    connected_with:               "vernetzt mit {{person}}"
-    persons_have_connected:       "{{person1}} und {{person2}} haben sich vernetzt"
+    connected_with:               "vernetzt mit %{person}"
+    persons_have_connected:       "%{person1} und %{person2} haben sich vernetzt"
     description_changed:          "Beschreibung ge&auml;ndert"
-    persons_description_changed:  "{{person}}'s Beschreibung wurde ge&auml;ndert"
+    persons_description_changed:  "%{person}'s Beschreibung wurde ge&auml;ndert"
     blog_post:                    "Blogeintrag"
-    person_wall:                  "{{person}} Pinnwand"
+    person_wall:                  "%{person} Pinnwand"
     person:
       one:                        "Person"
       other:                      "Personen"
-    persons:                      "{{person}}'s"
+    persons:                      "%{person}'s"
     activate:                     "Aktivieren"
     deactivate:                   "Deaktivieren"
     
@@ -611,7 +617,7 @@ de:
     edit_photo:                  "Foto bearbeiten"
     change_photo:                "Foto &auml;ndern"
     update_photo:                "Foto aktualisierne"
-    persons_photos:              "{{person}}'s Fotos"
+    persons_photos:              "%{person}'s Fotos"
     add_photo:                   "Foto hinzuf&uuml;gen"
     no_photo_to_show:            "Keine Fotos zum anzeigen"
     add_a_photo:                 "Ein Foto hinzuf&uuml;gen"
@@ -623,31 +629,31 @@ de:
     select_group_profile_photo:  "Als Gruppen-Profil Foto w&auml;hlen"
     select_person_profile_photo: "Als Profil Foto w&auml;hlen"
     select_as_gallery_thumbnail: "Als Gallerie Minibild w&auml;hlen"
-    new_photo_added:             "neues Foto {{photo}} {{gallery}} hinzugef&uuml;gt"
-    person_added_new_photo:      "{{person}} hat ein neues {{photo_str}} {{photo}} {{gallery}} hinzugef&uuml;gt"
-    owner_added_new_photo:       "{{owner}} hat ein neues {{photo_str}} {{photo}} {{gallery}} hinzugef&uuml;gt"
+    new_photo_added:             "neues Foto %{photo} %{gallery} hinzugef&uuml;gt"
+    person_added_new_photo:      "%{person} hat ein neues %{photo_str} %{photo} %{gallery} hinzugef&uuml;gt"
+    owner_added_new_photo:       "%{owner} hat ein neues %{photo_str} %{photo} %{gallery} hinzugef&uuml;gt"
     
   post:
     one:                      "1 Beitrag"
-    other:                    "{{count}} Beitr&auml;ge"
+    other:                    "%{count} Beitr&auml;ge"
     new_post:                 "Neuer Beitrag"
     edit_post:                "Beitrag bearbeiten"
     post:                     "Beitrag"
     new_blog_post:            "Neuer Blog Beitrag"
-    new_blog_post_link:       "neuer Blog Beitrag {{blog_post}}"
+    new_blog_post_link:       "neuer Blog Beitrag %{blog_post}"
     delete_post_confirmation: "Delete this post?"
     posted:                   "Ver&ouml;ffentlicht"
     blog:                     "Blog"
     topic:                    "Thema"
     person:                   "Person"
     body:                     "Body"
-    blog_for_person:          "Blog von {{person}}"
-    persons_blog:             "{{person}}'s Blog"
-    owners_blog:              "{{owner}}'s Blog"
-    person_posted_blog_post:  "{{person}} hat {{blog_post}} &mdash; {{blog}} ver&ouml;ffentlicht"
-    owner_posted_blog_post:   "{{owner}} hat {{blog_post}} &mdash; {{blog}} ver&ouml;ffentlicht"
+    blog_for_person:          "Blog von %{person}"
+    persons_blog:             "%{person}'s Blog"
+    owners_blog:              "%{owner}'s Blog"
+    person_posted_blog_post:  "%{person} hat %{blog_post} &mdash; %{blog} ver&ouml;ffentlicht"
+    owner_posted_blog_post:   "%{owner} hat %{blog_post} &mdash; %{blog} ver&ouml;ffentlicht"
     no_blog_posts:            "(Noch) keine Blog Beitr&auml;ge"
-    person_new_blog_post:     "{{person}} hat einen {{new_blog_post}} erstellt"
+    person_new_blog_post:     "%{person} hat einen %{new_blog_post} erstellt"
     
   pref:
     edit_global_prefs:    "Globale Einstellungen bearbeiten"
@@ -667,9 +673,11 @@ de:
     email_verifications:  "Email Verifizierung"
     activation_code_meta: "Email an neue Mitglieder mit Aktivierungscode senden"
     keep_it_short_meta:   "Kurz halten, um die Breite von 146px einzuhalten"
+    analytics:            "Google Analytics Code"
     analytics_meta:       "Der Code wird direkt vor den &lt;/body&gt; tag eingef&uuml;gt"
     global_prefs:         "Globale Einstellungen"
     about_meta:           "Webseitenbeschreibung (Texteintrag f&uuml;hrt zu einem \"&Uuml;ber\" link)"
+    about_meta_edit:      "Webseitenbeschreibung"
     prefs:                "Einstellungen"
     
   search:
@@ -702,12 +710,12 @@ de:
     name:                      "Name"
     posts_count:               "Beitr&auml;ge z&auml;hlen"
     posted_by:                 "Ver&ouml;ffentlicht von"
-    in_results:                "In {{search_summary}}"
+    in_results:                "In %{search_summary}"
     forum_topic:               "Forum - Thema"
     comment:                   " - Kommentar "
     add_reply:                 "Antwort hinzuf&uuml;gen"
     started_by:                "Er&ouml;ffnet von"
     delete_topic_confirmation: "Sicher, dass dieses Thema gel&ouml;scht werden soll?"
     delete_topic:              "Thema l&ouml;schen"
-    new_discussion:            "neues Diskussionsthema {{topic}}"
-    person_posted:             "{{person}} hat ein neues Thema {{topic}} erstellt"
+    new_discussion:            "neues Diskussionsthema %{topic}"
+    person_posted:             "%{person} hat ein neues Thema %{topic} erstellt"

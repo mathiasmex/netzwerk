@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090218124612
+# Schema version: 53
 #
 # Table name: event_attendees
 #
@@ -20,5 +20,4 @@ class EventAttendee < ActiveRecord::Base
   def log_activity
     add_activities(:item => self, :owner => self.person)
   end
-
 end

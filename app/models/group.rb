@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090218124612
+# Schema version: 53
 #
 # Table name: groups
 #
@@ -32,7 +32,7 @@ class Group < ActiveRecord::Base
   
   belongs_to :owner, :class_name => "Person", :foreign_key => "person_id"
   
-  has_many :activities, :as => :owner, :conditions => ["owner_type = ?","Group"],
+  has_many :activities, :as => :owner, :conditions => ["owner_type = ?", "Group"],
                         :foreign_key => "item_id", :dependent => :destroy
   
   has_many :galleries, :as => :owner, :dependent => :destroy
@@ -45,7 +45,7 @@ class Group < ActiveRecord::Base
   before_update :set_old_description
   after_update :log_activity_description_changed
   
-  is_indexed :fields => [ 'name', 'description']
+  is_indexed :fields => ['name', 'description']
   
   # GROUP modes
   PUBLIC = 0
@@ -58,7 +58,7 @@ class Group < ActiveRecord::Base
     def not_hidden(page = 1)
       paginate(:all, :page => page,
                      :per_page => RASTER_PER_PAGE,
-                     :conditions => ["mode = ? OR mode = ?", PUBLIC,PRIVATE],
+                     :conditions => ["mode = ? OR mode = ?", PUBLIC, PRIVATE],
                      :order => "name ASC")
     end
   end
@@ -124,8 +124,7 @@ class Group < ActiveRecord::Base
     # flatten yields [primary, other one, another one]
     @sorted_photos ||= photos.partition(&:primary).flatten
   end
-  
-  
+    
   private
   
   def set_old_description
@@ -144,5 +143,4 @@ class Group < ActiveRecord::Base
       add_activities(:activity => activity, :owner => Person.find(self.person_id))
     end
   end
-  
 end

@@ -112,7 +112,7 @@ module I18n
     # values passed to #translate as part of the options hash, with the keys matching
     # the interpolation variable names.
     #
-    # <em>E.g.</em>, with a translation <tt>:foo => "foo {{bar}}"</tt> the option
+    # <em>E.g.</em>, with a translation <tt>:foo => "foo %{bar}"</tt> the option
     # value for the key +bar+ will be interpolated into the translation:
     #   I18n.t :foo, :bar => 'baz' # => 'foo baz'
     #
@@ -133,7 +133,7 @@ module I18n
     #
     # The <tt>:count</tt> option can be used both for pluralization and interpolation.
     # <em>E.g.</em>, with the translation
-    # <tt>:foo => ['{{count}} foo', '{{count}} foos']</tt>, count will
+    # <tt>:foo => ['%{count} foo', '%{count} foos']</tt>, count will
     # be interpolated to the pluralized translation:
     #   I18n.t :foo, :count => 1 # => '1 foo'
     #

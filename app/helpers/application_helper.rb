@@ -11,7 +11,7 @@ module ApplicationHelper
   ## Menu helpers
   
   def menu
-    home     = menu_element(t('home.home'),   home_path)
+    home     = menu_element(t('home.home'), home_path)
     if Forum.count == 1
       forum = menu_element(t('home.forum'), forum_path(Forum.find(:first)))
     else
@@ -20,31 +20,29 @@ module ApplicationHelper
     resources = menu_element(t('home.resources'), "http://docs.insoshi.com/")
 
     if logged_in? and not admin_view?
-      home =    menu_element(t('home.dashboard'), home_path)
-      people   = menu_element(t('home.people'),      people_path)
-      profile   = menu_element(t('person.profile_tab'),  person_path(current_person))
-      messages  = menu_element(t('message.messages'), messages_path)
-      #blog     = menu_element("Blog",     blog_path(current_person.blog))
-      #photos   = menu_element("Photos",   photos_path)
+      home      = menu_element(t('home.dashboard'),     home_path)
+      profile   = menu_element(t('person.profile_tab'), person_path(current_person))
+      messages  = menu_element(t('message.messages'),   messages_path)
+      people    = menu_element(t('home.people'),        people_path)
+      #blog     = menu_element("Blog",                  blog_path(current_person.blog))
+      #photos   = menu_element("Photos",                photos_path)
       #contacts = menu_element("Contacts",
       #                        person_connections_path(current_person))
-      events   = menu_element(t('event.events'), events_path)
-      groups = menu_element(t('groups.groups'), groups_path())
-      #links = [home, profile, contacts, messages, blog, people, forum]
-      groups = menu_element(t('groups.groups'), groups_path())
-      links = [home, profile, messages, people, groups, forum]
+      events    = menu_element(t('event.events'),       events_path)
+      groups    = menu_element(t('groups.groups'),      groups_path())
+      links     = [home, profile, messages, people, groups, forum]
       # TODO: put this in once events are ready.
       links.push(events)
       
     elsif logged_in? and admin_view?
-      home =    menu_element(t('home.dashboard'), home_path)
-      people =  menu_element(t('home.people'), admin_people_path)
-      forums =  menu_element(inflect(t('home.forum'), Forum.count),
-                             admin_forums_path)
-      companies = menu_element(t('home.companies'), admin_companies_path)
-      preferences = menu_element(t('pref.prefs'), admin_preferences_path)
-      groups = menu_element(t('groups.groups'), admin_groups_path)
-      links = [home, people, groups, companies, preferences]
+      home        = menu_element(t('home.dashboard'),     home_path)
+      preferences = menu_element(t('pref.prefs'),         admin_preferences_path)
+      people      = menu_element(t('home.people'),        admin_people_path)
+      forums      = menu_element(inflect(t('home.forum'), Forum.count),
+                                 admin_forums_path)
+      companies   = menu_element(t('home.companies'),     admin_companies_path)
+      groups      = menu_element(t('groups.groups'),      admin_groups_path)
+      links       = [home, preferences, people, companies, groups, forums]
     else
       links = [home]
     end
@@ -70,7 +68,8 @@ module ApplicationHelper
   end
   
   def login_block
-    forgot = global_prefs.can_send_email? ? '<br />' + link_to(t('password_reminder.forgot_password'), new_password_reminder_path) : ''
+    forgot = global_prefs.can_send_email? ? '<br />' + link_to(t('password_reminder.forgot_password'),
+                                                       new_password_reminder_path) : ''
     content_tag(:span, link_to(t('session.sign_in'), login_path) + t('global.or') +
                        link_to(t('person.sign_up'), signup_path) + 
                        forgot)
@@ -160,7 +159,7 @@ module ApplicationHelper
     end
   end
 
-  # Return a text with the company and it's ancestors
+  # Return a text with the company and its ancestors
   def company_tree(company)
     text = ""
     if company.ancestors.length > 0
@@ -209,4 +208,5 @@ module ApplicationHelper
     def no_paragraph_tag?(text)
       text !~ /^\<p/
     end
+
 end

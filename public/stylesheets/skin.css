@@ -10,23 +10,23 @@ body {
 #header, #wrap, #footer {
   margin: 0 auto;
   text-align: left;
-  width: 774px;
+  width: 960px;
 }
 #content {
-  width: 774px;
+  width: 960px;
   float: left;
 }
 .col1 {
   float: left;
-  width: 520px;
+  width: 640px;
 }
 .col2 {
   float: right;
-  width: 240px;
+  width: 280px;
 }
 .single-col .col1 {
   margin: 0 210px;
-  width: 354px;
+  width: 324px;
 }
 
 /* columns inside a tabbed panel */
@@ -35,7 +35,7 @@ body {
 #tabCol .col1 {
   float: left;
   width: 60%;
-  padding-right: 10px;  
+  padding-right: 10px;
 }
 #tabCol .col2 {
   float: right;
@@ -50,28 +50,27 @@ body {
 }
 #header h1 {
   float: left;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  margin-left: -212px;
-  width: 174px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  width: 144px;
 }
 
 /* Header-nav */
 #nav {
-  margin: 44px 0 0 0;
-  width: 880px;
+  margin: 10px 0 0 0;
+  width: 960px;
   float: right;
 }
 #nav li {
   background: #069 url(/images/header-grad.jpg) bottom repeat-x;
   float: left;
-  height: 36px;
+  height: 30px;
   line-height: 36px;
   list-style-type: none;
-  margin: 0 0 0 0;
+  margin: 0 0 0 2px;
   padding: 0;
   text-align: center;
-  width: 110px;
+  width: 118px;
 }
 #nav li a {
   color: #fff;
@@ -82,6 +81,7 @@ body {
 }
 #nav li a:hover {
   background: url(/images/header-grad-inv.jpg) top repeat-x;
+  height: 30px;
 }
 #nav li.active a, #nav li.active a:hover {
   background: #fff;
@@ -96,11 +96,15 @@ body {
   clear: both;
   margin-top: 48px;
   padding: 24px 0;
-  width: 774px;
+  width: 960px;
 }
 #footer-nav {
   border-top: 1px solid #ccc;
   padding-top: 24px;
+  color: #4A70B1;
+}
+#footer-nav a, #footer-nav a:hover {
+  color: #4A70B1;
 }
 
 /* Welcome message */
@@ -108,7 +112,7 @@ p.welcome {
   position: absolute;
   right: 0;
   text-align: right;
-  top: 12px;
+  top: 35px;
 }
 
 /* Site elements */
@@ -421,8 +425,8 @@ ul.ui-tabs-nav li {
 }
 .ui-tabs-panel {
   min-height: 540px;
-  width: 97%;
-  border: 1px solid #4A70B1;
+  width: 97.5%;
+  border: 2px solid #4A70B1;
 }
 .comments li div {border-bottom: 1px solid #ccc;}
 .imgHoverMarker {display: inline;}
@@ -487,8 +491,10 @@ img.actioner {
 .contacts.grid.medium li.vcard a {
   outline: 0;
 }
+ul.people li.vcard h4,
+ul.people li.vcard pre,
 ul.people li.vcard p {
-  margin-left: 80px;
+  margin-left: 85px;
   vertical-align: top;
 }
 .prefItem {

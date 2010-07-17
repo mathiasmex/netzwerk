@@ -57,9 +57,9 @@
 </div>
 
 <div class="prefItem">
-  <b><%=t ('pref.analytics_meta') %></b>
   <%- unless @preferences.analytics.blank? -%>
-    <pre><%=h @preferences.analytics %></pre>
+  <b><%=t ('pref.analytics_meta') %></b>
+  <pre><%=h @preferences.analytics %></pre>
   <%- end -%>
 </div>
 <% end %>

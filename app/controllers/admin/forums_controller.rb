@@ -78,4 +78,5 @@ class Admin::ForumsController < ApplicationController
         redirect_to admin_forums_url
       end
     end
+
 end

@@ -5,7 +5,7 @@
 		<%= image_tag "icons/comment.png", :class => "searchforumicon" %>
 	</div>
 	<p>
-	<%=t ('topic.in_results', :search_summary => link_to(h(search_result.topic.name),
+	<%= t('topic.in_results', :search_summary => link_to(h(search_result.topic.name),
                                    forum_topic_path(search_result.topic.forum,
                                    search_result.topic,
                                    :anchor => "post_#{search_result.id}"))) %>:

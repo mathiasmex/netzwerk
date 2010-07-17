@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090218124612
+# Schema version: 53
 #
 # Table name: events
 #
@@ -102,5 +102,4 @@ class Event < ActiveRecord::Base
     def log_activity
       add_activities(:item => self, :person => self.person)
     end
-
 end

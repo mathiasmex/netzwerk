@@ -1,5 +1,6 @@
 # NOTE: We use "comments" for both wall topic comments and blog comments,
 # There is some trickery to handle the two in a unified manner.
+
 class CommentsController < ApplicationController
   
   before_filter :login_required
@@ -110,7 +111,7 @@ class CommentsController < ApplicationController
       end  
     end
     
-    # Return a the parent (person or blog post) of the comment.
+    # Return the parent (person or blog post) of the comment.
     def parent
       if wall?
         @person

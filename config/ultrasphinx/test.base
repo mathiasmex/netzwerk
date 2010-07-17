@@ -29,7 +29,7 @@ searchd
 {
   # Daemon options
   # What interface the search daemon should listen on and where to store its logs
-  address = 0.0.0.0
+  listen = 0.0.0.0
   port = 3322
   seamless_rotate = 1
   log = log/searchd_test.log

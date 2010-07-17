@@ -83,4 +83,5 @@ class Admin::CompaniesController < ApplicationController
       end
     end
   end
+
 end

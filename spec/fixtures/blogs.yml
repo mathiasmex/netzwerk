@@ -1,12 +1,18 @@
 one:
   owner: quentin
+  owner_type: Person
 two:
   owner: aaron
+  owner_type: Person
 three:
   owner: kelly
+  owner_type: Person
 four:
   owner: admin
+  owner_type: Person
 five:
   owner: deactivated
+  owner_type: Person
 six:
   owner: email_unverified
+  owner_type: Person

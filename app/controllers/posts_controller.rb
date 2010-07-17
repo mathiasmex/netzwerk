@@ -1,6 +1,8 @@
 # NOTE: We use "posts" for both forum topic posts and blog posts,
 # There is some trickery to handle the two in a unified manner.
+
 class PostsController < ApplicationController
+
   include ApplicationHelper
   include BlogsHelper
   
@@ -100,7 +102,7 @@ class PostsController < ApplicationController
     # Verify the person is authorized to create a post.
     def authorize_new
       if forum?
-        true
+        true  # This will change once there are groups
       elsif blog?
         if @blog.owner.class.to_s == "Person"
           redirect_to home_url unless current_person?(@blog.owner)
@@ -207,8 +209,8 @@ class PostsController < ApplicationController
        forum_topic_url(@forum, @topic)
       elsif blog?
         blog_tab_url(@blog)
-        # person_url(@blog.person, :anchor => "tBlog")
-      end      
+        # person_url(@blog.owner, :anchor => "tBlog")
+      end
     end
 
     # True if resource lives in a discussion forum.
@@ -222,4 +224,5 @@ class PostsController < ApplicationController
     def blog?
       !params[:blog_id].nil?
     end
+
 end

@@ -134,4 +134,5 @@ class SessionsController < ApplicationController
       redirect_back_or_default(login_url)
     end
   end
+
 end

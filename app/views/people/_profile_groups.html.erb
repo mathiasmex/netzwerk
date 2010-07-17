@@ -1,5 +1,5 @@
 <%- column_div :type => :primary do -%>
-  <h2><%=t ('group.group_person', :person => @person.name) %></h2>
+  <h2><%= t('group.group_person', :person => @person.name) %></h2>
 
   <% if current_person?(@person) %>
     <%= link_to t('group.add_group'), new_group_path() %>
@@ -9,7 +9,7 @@
                 :title => t('group.joined_groups'), :link => "groups"} %>
   <%= render :partial => 'groups', 
              :locals => {:groups => @own_groups, :some_groups => @some_own_groups,
-                :title => t('group.admin_groups'), :link => "admin"} %>
+                :title => t('groups.admin_groups'), :link => "admin"} %>
   
 <%- end -%>
 

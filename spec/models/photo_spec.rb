@@ -25,7 +25,7 @@ describe Photo do
   
   
   it "should have an associated person" do
-    new_photo.person.should == @person
+    new_photo.owner.should == @person
   end
   
   it "should not have default AttachmentFu errors for an empty image" do
@@ -39,7 +39,7 @@ describe Photo do
   
     def new_photo(options = {})
       Photo.new({ :uploaded_data => @image,
-                  :person        => @person,
+                  :owner         => @person,
                   :gallery       => @gallery }.merge(options))
     end
 end

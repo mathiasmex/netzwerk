@@ -8,7 +8,7 @@
     <%= link_to "members", members_group_path(group) %>
     |
     <%= link_to "delete", 
-                admin_group_path(group), :confirm => 'Are you sure?', :method => :delete%>    
+                admin_group_path(group), :confirm => t ('are_you_sure'), :method => :delete %>    
   </p>
   <%= display group.description %>
 </li>

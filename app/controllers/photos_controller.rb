@@ -2,8 +2,8 @@ class PhotosController < ApplicationController
 
   before_filter :login_required
   before_filter :correct_user_required,
-                :only => [ :edit, :update, :destroy, :set_primary, 
-                           :set_avatar ]
+                :only => [:edit, :update, :destroy, :set_primary, 
+                          :set_avatar]
   before_filter :correct_gallery_required, :only => [:new, :create]
   
   def index
@@ -127,8 +127,8 @@ class PhotosController < ApplicationController
     respond_to do |format|
       if @photo.update_attributes!(:avatar => true)
         @old_primary.each { |p| p.update_attributes!(:avatar => false) }
-        flash[:success] = t('flash.profile_photo_set')
         format.html { redirect_to (@photo.owner) }
+        flash[:success] = t('flash.profile_photo_set')
       else
         format.html do
           flash[:error] = t('flash.invalid_image')

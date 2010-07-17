@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090218124612
+# Schema version: 53
 #
 # Table name: memberships
 #
@@ -57,12 +57,12 @@ class Membership < ActiveRecord::Base
           transaction do
             create(:person => person, :group => group, :status => PENDING)
             if send_mail
-              membership = person.memberships.find(:first, :conditions => ['group_id = ?',group])
+              membership = person.memberships.find(:first, :conditions => ['group_id = ?', group])
               PersonMailer.deliver_membership_request(membership)
             end
           end
           if group.public?
-            membership = person.memberships.find(:first, :conditions => ['group_id = ?',group])
+            membership = person.memberships.find(:first, :conditions => ['group_id = ?', group])
             membership.accept
             if send_mail
               PersonMailer.deliver_membership_public_group(membership)
@@ -122,11 +122,11 @@ class Membership < ActiveRecord::Base
     end
     
     def pending?(person, group)
-      exist?(person, group) and mem(person,group).status == PENDING
+      exist?(person, group) and mem(person, group).status == PENDING
     end
     
     def invited?(person, group)
-      exist?(person, group) and mem(person,group).status == INVITED
+      exist?(person, group) and mem(person, group).status == INVITED
     end
     
   end
@@ -148,5 +148,4 @@ class Membership < ActiveRecord::Base
       add_activities(:activity => activity, :owner => membership.group)
     end
   end
-  
 end

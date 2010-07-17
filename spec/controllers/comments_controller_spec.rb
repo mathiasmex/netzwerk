@@ -48,7 +48,7 @@ describe CommentsController do
     end
     
     it "should allow destroy" do
-      login_as @blog.person
+      login_as @blog.owner
       comment = comments(:blog_comment)
       delete :destroy, :blog_id => @blog, :post_id => @post, :id => comment
       comment.should_not exist_in_database

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090218124612
+# Schema version: 53
 #
 # Table name: people
 #
@@ -41,12 +41,12 @@ class Person < ActiveRecord::Base
 
   attr_accessor :password, :verify_password, :new_password,
                 :sorted_photos
-  attr_accessible :email, :password, :password_confirmation, :name,
+  attr_accessible :email, :password, :password_confirmation, :name, :phone,
                   :description, :connection_notifications,
                   :message_notifications, :wall_comment_notifications,
                   :blog_comment_notifications, :identity_url, :lat, :lng, :address
   # Indexed fields for Sphinx
-  is_indexed :fields => [ 'name', 'description', 'deactivated',
+  is_indexed :fields => [ 'id', 'name', 'description', 'deactivated',
                           'email_verified'],
              :conditions => "deactivated = false AND (email_verified IS NULL OR email_verified = true)"
   MAX_EMAIL = MAX_PASSWORD = 40

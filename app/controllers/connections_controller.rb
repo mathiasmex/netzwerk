@@ -12,7 +12,7 @@ class ConnectionsController < ApplicationController
   end
   
   def show
-    # We never use this, but render "" for the bots' sake.
+    # We never use this, but render "" for the bots sake.
     render :text => ""
   end
   
@@ -96,7 +96,7 @@ class ConnectionsController < ApplicationController
     
     # Redirect if the target person is inactive.
     # Suppose Alice sends Bob a connection request, but then the admin 
-    # deactivates Alice.  We don't want Bob to be able to make the connection.
+    # deactivates Alice.  We do not want Bob to be able to make the connection.
     def redirect_for_inactive
       if @connection.contact.deactivated?
         flash[:error] = t('flash.invalid_request_person_deactivated')

@@ -1,4 +1,5 @@
 class MembershipsController < ApplicationController
+
   before_filter :login_required
   before_filter :authorize_person, :only => [:edit, :update, :destroy, :suscribe, :unsuscribe]
   
@@ -12,7 +13,8 @@ class MembershipsController < ApplicationController
     respond_to do |format|
       if Membership.request(current_person, @group)
         if @group.public?
-          flash[:notice] = "You have joined to '#{@group.name}'"
+          t('flash.group_invited_some_contacts', :name => (@group.name))
+          flash[:notice] = t('flash.joined_to_group', :group => (@group.name))
         else
           flash[:notice] = 'Membership request sent!'
         end

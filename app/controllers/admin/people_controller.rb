@@ -18,4 +18,5 @@ class Admin::PeopleController < ApplicationController
       format.html { redirect_to :back }
     end
   end
+
 end

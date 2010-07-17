@@ -73,4 +73,5 @@ class TopicsController < ApplicationController
       @forum = Forum.find(params[:forum_id])
       @body = "forum"
     end
+
 end

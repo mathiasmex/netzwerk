@@ -58,4 +58,5 @@ class Admin::PreferencesController < ApplicationController
       old_preferences.server_name != @preferences.server_name or
       old_preferences.email_notifications != @preferences.email_notifications
     end
+
 end

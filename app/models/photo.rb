@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090218124612
+# Schema version: 53
 #
 # Table name: photos
 #
@@ -88,5 +88,4 @@ class Photo < ActiveRecord::Base
       activity = Activity.create!(:item => self, :owner => owner)
       add_activities(:activity => activity, :owner => owner)
   end
-
 end

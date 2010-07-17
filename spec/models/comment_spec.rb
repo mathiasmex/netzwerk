@@ -41,7 +41,7 @@ describe Comment do
       end
     
       it "should add an activity to the poster" do
-        @comment.commentable.blog.person.activities.
+        @comment.commentable.blog.owner.activities.
           should contain(@activity)
       end
 
@@ -53,7 +53,7 @@ describe Comment do
     describe "feed items for contacts" do
       it %(should not have duplicate items when a contact comments
            on a blog) do
-        @person = @post.blog.person
+        @person = @post.blog.owner
         @commenter = @comment.commenter
         Connection.connect(@person, @commenter)
         @comment.save!
@@ -94,7 +94,7 @@ describe Comment do
       
       it "should not send an email for an own-comment" do
         lambda do
-          commenter = @post.blog.person
+          commenter = @post.blog.owner
           comment = @post.comments.unsafe_create(:body => "Hey there",
                                                  :commenter => commenter)
         end.should_not change(@emails, :length)

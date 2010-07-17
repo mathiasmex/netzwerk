@@ -1,4 +1,5 @@
 class SearchesController < ApplicationController
+
   include ApplicationHelper
 
   before_filter :login_required
@@ -58,4 +59,5 @@ class SearchesController < ApplicationController
     def strip_admin(model)
       model.split("::").last
     end
+
 end

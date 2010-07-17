@@ -53,43 +53,43 @@ module I18nSimpleBackendTestSetup
           :half_a_minute => 'half a minute',
           :less_than_x_seconds => {
             :one => 'less than 1 second',
-            :other => 'less than {{count}} seconds'
+            :other => 'less than %{count} seconds'
           },
           :x_seconds => {
             :one => '1 second',
-            :other => '{{count}} seconds'
+            :other => '%{count} seconds'
           },
           :less_than_x_minutes => {
             :one => 'less than a minute',
-            :other => 'less than {{count}} minutes'
+            :other => 'less than %{count} minutes'
           },
           :x_minutes => {
             :one => '1 minute',
-            :other => '{{count}} minutes'
+            :other => '%{count} minutes'
           },
           :about_x_hours => {
             :one => 'about 1 hour',
-            :other => 'about {{count}} hours'
+            :other => 'about %{count} hours'
           },
           :x_days => {
             :one => '1 day',
-            :other => '{{count}} days'
+            :other => '%{count} days'
           },
           :about_x_months => {
             :one => 'about 1 month',
-            :other => 'about {{count}} months'
+            :other => 'about %{count} months'
           },
           :x_months => {
             :one => '1 month',
-            :other => '{{count}} months'
+            :other => '%{count} months'
           },
           :about_x_years => {
             :one => 'about 1 year',
-            :other => 'about {{count}} year'
+            :other => 'about %{count} year'
           },
           :over_x_years => {
             :one => 'over 1 year',
-            :other => 'over {{count}} years'
+            :other => 'over %{count} years'
           }
         }
       }
@@ -245,35 +245,35 @@ class I18nSimpleBackendInterpolateTest < Test::Unit::TestCase
   include I18nSimpleBackendTestSetup
 
   def test_interpolate_given_a_value_hash_interpolates_the_values_to_the_string
-    assert_equal 'Hi David!', @backend.send(:interpolate, nil, 'Hi {{name}}!', :name => 'David')
+    assert_equal 'Hi David!', @backend.send(:interpolate, nil, 'Hi %{name}!', :name => 'David')
   end
 
   def test_interpolate_given_a_value_hash_interpolates_into_unicode_string
-    assert_equal 'Häi David!', @backend.send(:interpolate, nil, 'Häi {{name}}!', :name => 'David')
+    assert_equal 'Häi David!', @backend.send(:interpolate, nil, 'Häi %{name}!', :name => 'David')
   end
 
   def test_interpolate_given_an_unicode_value_hash_interpolates_to_the_string
-    assert_equal 'Hi ゆきひろ!', @backend.send(:interpolate, nil, 'Hi {{name}}!', :name => 'ゆきひろ')
+    assert_equal 'Hi ゆきひろ!', @backend.send(:interpolate, nil, 'Hi %{name}!', :name => 'ゆきひろ')
   end
 
   def test_interpolate_given_an_unicode_value_hash_interpolates_into_unicode_string
-    assert_equal 'こんにちは、ゆきひろさん!', @backend.send(:interpolate, nil, 'こんにちは、{{name}}さん!', :name => 'ゆきひろ')
+    assert_equal 'こんにちは、ゆきひろさん!', @backend.send(:interpolate, nil, 'こんにちは、%{name}さん!', :name => 'ゆきひろ')
   end
 
   if Kernel.const_defined?(:Encoding)
     def test_interpolate_given_a_non_unicode_multibyte_value_hash_interpolates_into_a_string_with_the_same_encoding
-      assert_equal euc_jp('Hi ゆきひろ!'), @backend.send(:interpolate, nil, 'Hi {{name}}!', :name => euc_jp('ゆきひろ'))
+      assert_equal euc_jp('Hi ゆきひろ!'), @backend.send(:interpolate, nil, 'Hi %{name}!', :name => euc_jp('ゆきひろ'))
     end
 
     def test_interpolate_given_an_unicode_value_hash_into_a_non_unicode_multibyte_string_raises_encoding_compatibility_error
       assert_raise(Encoding::CompatibilityError) do
-        @backend.send(:interpolate, nil, euc_jp('こんにちは、{{name}}さん!'), :name => 'ゆきひろ')
+        @backend.send(:interpolate, nil, euc_jp('こんにちは、%{name}さん!'), :name => 'ゆきひろ')
       end
     end
 
     def test_interpolate_given_a_non_unicode_multibyte_value_hash_into_an_unicode_string_raises_encoding_compatibility_error
       assert_raise(Encoding::CompatibilityError) do
-        @backend.send(:interpolate, nil, 'こんにちは、{{name}}さん!', :name => euc_jp('ゆきひろ'))
+        @backend.send(:interpolate, nil, 'こんにちは、%{name}さん!', :name => euc_jp('ゆきひろ'))
       end
     end
   end
@@ -287,15 +287,15 @@ class I18nSimpleBackendInterpolateTest < Test::Unit::TestCase
   end
 
   def test_interpolate_given_a_values_hash_with_nil_values_interpolates_the_string
-    assert_equal 'Hi !', @backend.send(:interpolate, nil, 'Hi {{name}}!', {:name => nil})
+    assert_equal 'Hi !', @backend.send(:interpolate, nil, 'Hi %{name}!', {:name => nil})
   end
 
   def test_interpolate_given_an_empty_values_hash_raises_missing_interpolation_argument
-    assert_raise(I18n::MissingInterpolationArgument) { @backend.send(:interpolate, nil, 'Hi {{name}}!', {}) }
+    assert_raise(I18n::MissingInterpolationArgument) { @backend.send(:interpolate, nil, 'Hi %{name}!', {}) }
   end
 
   def test_interpolate_given_a_string_containing_a_reserved_key_raises_reserved_interpolation_key
-    assert_raise(I18n::ReservedInterpolationKey) { @backend.send(:interpolate, nil, '{{default}}', {:default => nil}) }
+    assert_raise(I18n::ReservedInterpolationKey) { @backend.send(:interpolate, nil, '%{default}', {:default => nil}) }
   end
   
   private

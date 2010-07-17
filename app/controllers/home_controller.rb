@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+
   skip_before_filter :require_activation
   
   def index
@@ -20,4 +21,5 @@ class HomeController < ApplicationController
       format.atom
     end  
   end
+
 end
