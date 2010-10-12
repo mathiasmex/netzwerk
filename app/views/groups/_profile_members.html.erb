@@ -1,5 +1,5 @@
 <%- column_div :type => :primary do -%>
-  <h2><span class="fn n"><%=t ('group.group_members', :group => h(@group.name)) %></span></h2>
+  <h2><span class="fn n"><%= t('group.group_members', :group => h(@group.name)) %></span></h2>
 
   <% if @group.people.count > Person::MAX_DEFAULT_CONTACTS or group_owner?(current_person,@group) %>
     <div class='button_container'>

@@ -1,0 +1,11 @@
+<% column_div :type => :primary do -%>
+
+  <%= flash[:notice] %>
+
+    <h2><%=t ('services.services') %></h2>
+
+    <p><%=t ('services.currently_not_connected') %></p>
+
+  <p><%= link_to t('global.back'), oauth_consumers_url %></p>
+
+<% end %>

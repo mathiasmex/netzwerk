@@ -96,7 +96,7 @@ describe EventsController do
       contact = login_as(:quentin)
       Event.should_receive(:find).and_return(mock_event)
       mock_event.should_receive(:only_contacts?).and_return(true)
-      Connection.connect(@person,contact)
+      Connection.connect(@person, contact)
       get :show, :id => "1"
       response.should be_success
     end
@@ -194,13 +194,13 @@ describe EventsController do
     describe "with successful save" do
 
       it "should create a new event" do
-        Event.should_receive(:new).with({'these' => 'params','person' => @person}).and_return(mock_event)
-        post :create, :event => {:these => 'params'}
+        Event.should_receive(:new).with({'these' => 'params', 'person' => @person}).and_return(mock_event)
+        post :create, :event => {:these => 'params', :person => @person}
       end
 
       it "should assign the created event for the view" do
         Event.stub!(:new).and_return(mock_event)
-        post :create, :event => {}
+        post :create, :event => {:these => 'params'}
         assigns(:event).should equal(mock_event)
       end
 
@@ -215,8 +215,8 @@ describe EventsController do
     describe "with failed save" do
 
       it "should create a new event" do
-        Event.should_receive(:new).with({'these' => 'params','person' => @person}).and_return(mock_event(:save => false))
-        post :create, :event => {:these => 'params'}
+        Event.should_receive(:new).with({'these' => 'params', 'person' => @person}).and_return(mock_event(:save => false))
+        post :create, :event => {:these => 'params', :person => @person}
       end
 
       it "should assign the invalid event for the view" do

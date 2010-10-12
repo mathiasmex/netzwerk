@@ -30,9 +30,10 @@ module ApplicationHelper
       #                        person_connections_path(current_person))
       events    = menu_element(t('event.events'),       events_path)
       groups    = menu_element(t('groups.groups'),      groups_path())
-      links     = [home, profile, messages, people, groups, forum]
+      links     = [home, profile, messages, people, groups, forum, events]
+      links.push(menu_element(t('services.services'), oauth_consumers_url))
       # TODO: put this in once events are ready.
-      links.push(events)
+      # links.push(events)
       
     elsif logged_in? and admin_view?
       home        = menu_element(t('home.dashboard'),     home_path)
@@ -45,11 +46,21 @@ module ApplicationHelper
       links       = [home, preferences, people, companies, groups, forums]
     else
       links = [home]
-    end
-    if global_prefs.about.blank?
-      links
-    else
-      links.push(menu_element(t('home.about'), about_url))
+      if global_prefs.about.blank?
+        links
+      else
+        links.push(menu_element(t('home.about'), about_url))
+      end
+      if global_prefs.privacy_policy.blank?
+        links
+      else
+        links.push(menu_element(t('home.privacy_policy'), privacy_policy_url))
+      end
+      if global_prefs.impressum.blank?
+        links
+      else
+        links.push(menu_element(t('home.impressum'), impressum_url))
+      end
     end
   end
 
@@ -149,11 +160,11 @@ module ApplicationHelper
   # Return a formatting note (depends on the presence of a Markdown library)
   def formatting_note
     if markdown?
-      %(HTML and
+      %((sowohl HTML als auch
         #{link_to("Markdown",
                   "http://daringfireball.net/projects/markdown/basics",
                   :popup => true)}
-       formatting supported)
+       wird unterst&uuml;tzt))
     else 
       t 'html_formatting_supported'
     end

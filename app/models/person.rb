@@ -44,7 +44,7 @@ class Person < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :name, :phone,
                   :description, :connection_notifications,
                   :message_notifications, :wall_comment_notifications,
-                  :blog_comment_notifications, :identity_url, :lat, :lng, :address
+                  :blog_comment_notifications, :identity_url, :lat, :lng, :full_address
   # Indexed fields for Sphinx
   is_indexed :fields => [ 'id', 'name', 'description', 'deactivated',
                           'email_verified'],
@@ -75,6 +75,9 @@ class Person < ActiveRecord::Base
                           Connection::REQUESTED, false, true]
 
   has_one :blog, :as => :owner
+  has_one :twitter,       :class_name => "TwitterToken", :dependent => :destroy
+  has_one :google,        :class_name => "GoogleToken",  :dependent => :destroy 
+
   has_many :company_person
   has_many :companies, :through => :company_person, :source => :company, :order => :name
   has_many :email_verifications
@@ -96,6 +99,7 @@ class Person < ActiveRecord::Base
                     :conditions => "recipient_deleted_at IS NULL"
   end
   has_many :feeds
+
   has_many :activities, :through => :feeds, :order => 'activities.created_at DESC',
                                             :limit => FEED_SIZE,
                                             :conditions => ["people.deactivated = ?", false],
@@ -127,6 +131,10 @@ class Person < ActiveRecord::Base
                                :source => :group,
                                :conditions => "status = 0 and mode != 2",
                                :order => "name ASC"
+  has_many :client_applications
+  has_many :tokens, :class_name => "OauthToken",
+                    :order => "authorized_at desc",
+                    :include => [:client_application]
 
   validates_presence_of     :email, :name
   validates_presence_of     :password,              :if => :password_required?
@@ -202,7 +210,7 @@ class Person < ActiveRecord::Base
 
   #FIXME: it's done to replace the "has many :activities"
   def activities
-    feeds.find(:all, :include => [:person,:activity], 
+    feeds.find(:all, :include => [:person, :activity], 
       :order => 'activities.created_at DESC', :limit => FEED_SIZE, 
       :conditions => ["people.deactivated = ?",false]).collect{|x| x.activity}
 #    has_many :activities, :through => :feeds, :order => 'activities.created_at DESC',
@@ -393,7 +401,6 @@ class Person < ActiveRecord::Base
     self.remember_token            = nil
     save(false)
   end
-
 
   def change_password?(passwords)
     self.password_confirmation = passwords[:password_confirmation]

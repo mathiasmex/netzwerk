@@ -1,4 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.resources :oauth_consumers, :member => { :callback => :get }
+
+  map.resources :oauth_clients
+
+  map.test_request  '/oauth/test_request',  :controller => 'oauth', :action => 'test_request'
+  map.access_token  '/oauth/access_token',  :controller => 'oauth', :action => 'access_token'
+  map.request_token '/oauth/request_token', :controller => 'oauth', :action => 'request_token'
+  map.authorize     '/oauth/authorize',     :controller => 'oauth', :action => 'authorize'
+  map.oauth         '/oauth',               :controller => 'oauth', :action => 'index'
+
   map.resources :memberships, :member => { :unsuscribe => :delete,
                                            :suscribe => :post }
 
@@ -26,7 +37,7 @@ ActionController::Routing::Routes.draw do |map|
     event.resources :comments
   end
 
-  map.resources :preferences
+  map.resources :preferences, :collection => { :about => :get, :privacy_policy => :get, :impressum => :get }
   map.resources :companies
   map.resources :searches
   map.resources :activities
@@ -41,12 +52,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :messages, :collection => { :sent => :get, :trash => :get },
                            :member => { :reply => :get, :undestroy => :put }
 
-  map.resources :people, :member => { :verify_email => :get,
-                                      :common_contacts => :get }
+  map.resources :people, :member => {  }
   map.connect 'people/verify/:id', :controller => 'people',
                                    :action => 'verify_email'
   map.resources :people, :member => { :add_company => :put,
                                        :delete_company => :delete,
+                                       :verify_email => :get,
+                                       :common_contacts => :get,
                                        :groups => :get,
                                        :admin_groups => :get,
                                        :request_memberships => :get,
@@ -86,6 +98,8 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.home '/', :controller => 'home'
   map.about '/about', :controller => 'home', :action => 'about'
+  map.privacy_policy '/privacy_policy', :controller => 'home', :action => 'privacy_policy'
+  map.impressum '/impressum', :controller => 'home', :action => 'impressum'
   map.admin_home '/admin/home', :controller => 'home'
 
   # The priority is based upon order of creation: first created -> highest priority.

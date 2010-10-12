@@ -33,7 +33,7 @@
             <%- end -%>
         <%- end -%>
         <%- if Membership.connected?(current_person,@group) -%>
-          <li><%=t ('group.you_are_group_member', :group => h(@group.name)) %>
+          <li><%= t('group.you_are_group_member', :group => h(@group.name)) %>
               <br />
               (<%= link_to t('group.leave_group'),
                       membership_path(Membership.mem(current_person, @group)), 
@@ -44,7 +44,7 @@
         <%- end -%>
         <%- if Membership.pending?(current_person, @group) -%>
           <li>
-            <%=t ('group.request_member_group', :group => h(@group.name)) %>
+            <%= t('group.request_member_group', :group => h(@group.name)) %>
           </li>
         <%- end -%>
       <%- else -%>

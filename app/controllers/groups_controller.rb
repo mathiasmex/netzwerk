@@ -21,6 +21,7 @@ class GroupsController < ApplicationController
     @blog = @group.blog
     @posts = @group.blog.posts.paginate(:page => params[:page])
     @galleries = @group.galleries.paginate(:page => params[:page])
+    @feed_entries = @group.feed_entries.paginate(:page => params[:page])
     group_redirect_if_not_public 
   end
 

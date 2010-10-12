@@ -7,11 +7,11 @@
 
   <%= error_messages_for :person %>
 
-  <% form_for @person do |f| -%>
+  <%- form_for @person do |f| -%>
 
   <div class="form_row">
     <label for="person_email">
-      <%=t ('person.email') %><span class="small"> (<%= t('person.never_made_public') %>
+      <%=t ('person.email') %><br /><span class="small"> (<%= t('person.never_made_public') %>
       <%= " + " + t('person.will_be_verified') if global_prefs.email_verifications? %>)
       </span>
     </label>
@@ -39,5 +39,5 @@
   <div class="form_row">
     <%= submit_tag t('person.sign_up'), :class => "button" %>
   </div>
-  <% end %>
+  <%- end -%>
 <%- end -%>

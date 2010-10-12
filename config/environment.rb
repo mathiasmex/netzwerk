@@ -27,7 +27,8 @@ Rails::Initializer.run do |config|
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
   # Add additional load paths for your own custom dirs
-  config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
+  config.load_paths += %W(
+    #{RAILS_ROOT}/app/sweepers )
 
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
@@ -72,6 +73,10 @@ Rails::Initializer.run do |config|
   config.gem 'chronic'
   config.gem 'BlueCloth', :lib => 'bluecloth'
   config.gem 'geokit'
+  config.gem 'pauldix-feedzirra', :lib => 'feedzirra', :source => "http://gems.github.com"
+  config.gem 'oauth', :version => '>= 0.4.1'
+  config.gem 'delayed_job', :version => '>= 2.0.3'
+  # config.gem 'oauth-plugin'
   # config.gem 'rack-openid', :version => '>= 1.0.1'
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.

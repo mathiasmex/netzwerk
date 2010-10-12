@@ -6,6 +6,8 @@ class PeopleController < ApplicationController
                                            :common_contacts]
   before_filter :correct_user_required, :only => [:edit, :update, :invitations]
   before_filter :setup
+  require 'geokit'
+  include Geokit::Geocoders
   
   def index
     @people = Person.mostly_active(params[:page])
@@ -38,7 +40,9 @@ class PeopleController < ApplicationController
       @own_groups = current_person == @person ? @person.own_groups : @person.own_not_hidden_groups
       @some_own_groups = @own_groups[0...num_contacts]
       @events = @person.geolocated? ?
-      Event.monthly_events(Time.now).find(:all, :origin => [@person.lat,@person.lng], :within => params[:within] || 100) : []
+      Event.monthly_events(Time.now).find(:all,
+                                          :origin => [@person.lat,@person.lng],
+                                          :within => params[:within] || 100) : []
     end
     respond_to do |format|
       format.html
@@ -118,8 +122,18 @@ class PeopleController < ApplicationController
 
   def update
     @person = Person.find(params[:id])
+    @person.full_address = (GoogleGeocoder.reverse_geocode "#{@person.lat},#{@person.lng}").full_address
     respond_to do |format|
       case params[:type]
+      when 'person'
+        if @person.update_attributes(params[:person])
+          flash[:notice] = t('flash.profile_updated')
+          format.html { redirect_to(@person) }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
+        end
       when 'info_edit'
         if !preview? and @person.update_attributes(params[:person])
           flash[:success] = t('flash.profile_updated')
@@ -145,6 +159,14 @@ class PeopleController < ApplicationController
     end
   end
   
+  def geolocate
+    @location = MultiGeocoder.geocode(params[:address])
+    @type = params[:type]
+    if @location.success
+      @coord = @location.to_a
+    end
+  end
+
   def common_contacts
     @person = Person.find(params[:id])
     @common_contacts = @person.common_contacts_with(current_person,

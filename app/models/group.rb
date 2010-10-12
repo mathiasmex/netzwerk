@@ -15,7 +15,7 @@
 
 class Group < ActiveRecord::Base
   include ActivityLogger
-  
+
   validates_presence_of :name, :person_id
   
   NUM_WALL_COMMENTS = 10
@@ -39,6 +39,8 @@ class Group < ActiveRecord::Base
   
   has_many :comments, :as => :commentable, :order => 'created_at DESC',
                       :limit => NUM_WALL_COMMENTS, :dependent => :destroy
+  has_many :feed_entries, :order => 'created_at DESC',
+                      :limit => '10', :dependent => :destroy, :class_name => "FeedEntry"
   
   before_create :create_blog
   after_create :log_activity

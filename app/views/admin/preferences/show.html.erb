@@ -1,6 +1,7 @@
 <%- column_div :type => :primary do -%>
 <h2><%=t ('pref.global_prefs') %></h2>
-<div class="button"><%= link_to t('global.edit'), edit_admin_preference_path(@preferences) %></div>
+<p class="button"><%= link_to t('global.edit'), edit_admin_preference_path(@preferences) %></p>
+
 <div class="prefItem">
   <div class="prefLabel"><%=t ('pref.application_name') %></div>
   <div class="prefValue"><%= h @preferences.app_name %></div>
@@ -27,16 +28,6 @@
 </div>
 
 <div class="prefItem">
-  <div class="prefLabel">Number of nodes in a hierarchy:</div>
-  <div class="prefValue"><%=h @preferences.node_number %></div>
-</div>
-
-<div class="prefItem">
-  <div class="prefLabel">Numero de "companias" puede tener cada persona maximo:</div>
-  <div class="prefValue"><%=h @preferences.number_of_companies %></div>
-</div>
-  
-<div class="prefItem">
   <div class="prefLabel"><%=t ('pref.email_verifications') %></div>
   <div class="prefValue"><%=h @preferences.email_verifications %></div>
 </div>
@@ -54,6 +45,16 @@
 <div class="prefItem">
   <b><%=t ('pref.about_meta') %></b>
   <div class="prefAbout"><%= display @preferences.about %></div>
+</div>
+
+<div class="prefItem">
+  <b><%=t ('pref.privacy_policy_meta') %></b>
+  <div class="prefAbout"><%= display @preferences.privacy_policy %></div>
+</div>
+
+<div class="prefItem">
+  <b><%=t ('pref.impressum_meta') %></b>
+  <div class="prefAbout"><%= display @preferences.impressum %></div>
 </div>
 
 <div class="prefItem">

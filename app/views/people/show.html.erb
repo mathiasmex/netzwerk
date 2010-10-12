@@ -1,4 +1,4 @@
-<div id="profile" style="display: none;">
+<div id="profile" style="display: hidden;">
   <% tabs = TabsRenderer.new(self, :id => "tabCol") %>
   <% tabs.create('tProfile', t('person.profile_tab'), :class => "profile vcard") do %>
     <%= render :partial => 'profile' %>

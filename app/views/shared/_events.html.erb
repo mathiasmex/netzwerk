@@ -7,7 +7,7 @@
     <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<%= Geokit::Geocoders::google %>"
        type="text/javascript"></script>
     <%= javascript_include_tag 'gmaps.js' %>
-    <div id="map_div" style="width:420px"></div>
+    <div id="map_div" style="width:550px"></div>
     <script type='text/javascript'>
       $(document).ready(function(){
         initialize_map();
@@ -19,8 +19,8 @@
             <%- end -%>
         <%- end -%>
         <%- if @person.geolocated? -%>
-          addAddressToMap(<%= @person.lat.to_s + ',' + @person.lng.to_s + ',' + "'#{@person.name}'"%>, false,'person');
           bounds.extend(new GLatLng(<%= @person.lat.to_s + ','+ @person.lng.to_s %>));
+          addAddressToMap(<%= @person.lat.to_s + ',' + @person.lng.to_s + ',' + "'#{@person.name}'"%>, false,'person');
         <%- end -%>
         map.setCenter(bounds.getCenter());
         map.setZoom(map.getBoundsZoomLevel(bounds)-1);

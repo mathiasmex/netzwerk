@@ -1,0 +1,20 @@
+<% column_div :type => :primary do -%>
+
+  <h2><%=t ('services.already_connected_to', :service => params[:id].humanize) %></h2>
+
+  <% form_tag oauth_consumer_path(params[:id]), :method => :delete do %>
+
+  <ul class="list full">
+    <p><%= submit_tag t('global.disconnect') %></p>
+    <p><%= t('global.or') %></p>
+  </ul>
+  <ul class="list full">
+    <p><%= submit_tag t('global.reconnect') %></p>
+    <p><%= t('services.experienced_problem') %></p>
+  </ul>
+  <% end %>
+
+  <p><%= link_to t('global.back'), oauth_consumers_path %></p>
+
+<% end %>
+

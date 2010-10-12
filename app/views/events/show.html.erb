@@ -47,6 +47,9 @@
 
   <%- end -%>
 
+  <h2><%=t ('event.add_new_event') %></h2>
+  <%= link_to t('global.click_here'), new_event_path %>
+
 <% end -%>
 
 <% column_div :type => :secondary do -%>
@@ -55,7 +58,4 @@
              :locals => { :events => @month_events, :date => @date } %>
 
   <%= render :partial => 'event_location', :locals => { :events => @event.to_a } %>
-
-  <h2><%=t ('event.add_new_event') %></h2>
-  <%= link_to t('global.click_here'), new_event_path %>
 <% end -%>

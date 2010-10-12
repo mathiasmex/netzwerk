@@ -1,20 +1,29 @@
 <h2><%= t('post.persons_blog', :person => h(@blog.owner.name)) %></h2>
 
+  <% if (@blog.owner.class.to_s == "Person" and current_person?(@blog.owner)) or
+     (@blog.owner.class.to_s == "Group" and current_person?(@blog.owner.owner)) %>
+     <p><%= link_to t('post.new_blog_post'), new_blog_post_path(@blog) %></p>
+  <% end %> 
 
-<%- if (@blog.owner.class.to_s == "Person" and current_person?(@blog.owner)) or
-    (@blog.owner.class.to_s == "Group" and current_person?(@blog.owner.owner))
-    -%>
-  <p><%= link_to t('post.new_blog_post'), new_blog_post_path(@blog) %></p>
-<%- end -%> 
+  <% if @posts.empty? %>
+    <h3 class="blankslate">
+      <%=t ('post.no_blog_posts') %>
+    </h3> 
+  <% else %>
+    <ul class="list blog full">
+      <%= render :partial => 'posts/blog_post', :collection => @posts %>
+    </ul>
+  <% end %>
 
-<%- if @posts.empty? -%>
-  <h3 class="blankslate">
-    <%=t ('post.no_blog_posts') %>
-  </h3> 
-<%- else -%>
-  <ul class="list blog full">
-    <%= render :partial => 'posts/blog_post', :collection => @posts %>
-  </ul>
-<%- end -%>
+  <% if (@blog.owner.class.to_s == "Group") %>
+
+    <h2><%= t('blog.latest_group_blog_entries', :site => h(@blog.owner.name)) %></h2>
+      <ul class="list blog full">
+        <% for entry in FeedEntry.all(:limit => 10, :order => "published_at desc") %>
+          <p><%= link_to h(entry.name), entry.url, :target => "_blank" %></p>
+          <p><%= entry.summary %></p>
+        <% end %>
+      </ul>
+  <% end %>
 
 <%= will_paginate(@posts) %>

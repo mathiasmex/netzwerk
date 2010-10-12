@@ -1,7 +1,7 @@
 if defined? Geokit
 
 	# These defaults are used in Geokit::Mappable.distance_to and in acts_as_mappable
-	Geokit::default_units = :Kilometern
+	Geokit::default_units = :kms
 	Geokit::default_formula = :sphere
 
 	# This is the timeout value in seconds to be used for calls to the geocoder web
@@ -26,7 +26,7 @@ if defined? Geokit
 	# This is your Google Maps geocoder key. 
 	# See http://www.google.com/apis/maps/signup.html
 	# and http://www.google.com/apis/maps/documentation/#Geocoding_Examples
-	Geokit::Geocoders::google = 'REPLACE_WITH_YOUR_GOOGLE_KEY'
+	Geokit::Geocoders::google = 'ABQIAAAAhjIkII2-De0jmXN0NxSxPBTJQa0g3IQ9GZqIMmInSLzwtGDKaBRWC-ZpPPj_V50YsUQw6ewrn272dg'
     
 	# This is your username and password for geocoder.us.
 	# To use the free service, the value can be set to nil or false.  For 

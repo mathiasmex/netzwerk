@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
 
-  helper :all # include all helpers, all the time
+  helper :all
   include AuthenticatedSystem
   include SharedHelper
   include PreferencesHelper
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
  
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you are not using the cookie session store
-  protect_from_forgery # :secret => '71a8c82e6d248750397d166001c5e308'
+  protect_from_forgery
 
   private
 

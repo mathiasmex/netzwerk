@@ -10,6 +10,16 @@
     <%= render :partial => 'feed' %>
   <%- else -%>
     <%= render :partial => 'session' %>
+    
+    <h2>
+      <%= global_prefs.app_name.blank? ? t('global.the_site') : global_prefs.app_name %>
+      <%= t('person.join') %>
+    </h2>
+    
+    <div style="text-align: center;">
+      <%= link_to image_tag("button_signup.png"), signup_path %>
+    </div>
+
   <%- end -%>
 <%- end -%>
 
@@ -31,23 +41,13 @@
                :locals => { :groups => current_person.groups,
                :title => t('groups.joined_groups'), :link => "groups" } %>
   <%- else -%>
-    <%- unless global_prefs.app_name.blank? -%>
-      <h2><%=t ('home.about') %><%= global_prefs.app_name %></h2>
-    
-      <p>
-        <%= link_to t('global.click_here'), about_path %>
-        <%= t('home.learn_more_about_us', :the_site => global_prefs.app_name) %>.
-      </p>
-    <%- end -%>
-    
-    <h2>
-      <%= global_prefs.app_name.blank? ? t('global.the_site') : global_prefs.app_name %>
-      <%= t('person.join') %>
-    </h2>
-    
-    <div style="text-align: center;">
-      <%= link_to image_tag("button_signup.png"), signup_path %>
-    </div>
+
+      <h2><%= t('blog.latest_blog_entries') %></h2>
+      <ul class="list blog full">
+        <% for entry in FeedEntry.all(:limit => 10, :order => "published_at desc") %>
+          <p><%= link_to h(entry.name), entry.url, :target => "_blank" %></p>
+        <% end %>
+      </ul>
       
   <%- end -%>
 <%- end -%>

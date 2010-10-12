@@ -5,6 +5,9 @@
   <%= render :partial => @events %>
 </ol>
 
+<h2><%=t ('event.add_new_event') %></h2>
+<%= link_to t('global.click_here'), new_event_path %>
+
 <% end -%>
 
 <% column_div :type => :secondary do -%>
@@ -14,6 +17,4 @@
 
   <%= render :partial => 'event_location', :locals => { :events => @events } %>
 
-  <h2><%=t ('event.add_new_event') %></h2>
-  <%= link_to t('global.click_here'), new_event_path %>
 <% end -%>

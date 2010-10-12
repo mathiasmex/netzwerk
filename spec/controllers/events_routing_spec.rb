@@ -46,7 +46,7 @@ describe EventsController do
       params_from(:get, "/events/1").should == {:controller => "events", :action => "show", :id => "1"}
     end
   
-    it "should generate params { :controller => 'events', action => 'edit', id => '1' } from GET /events/1;edit" do
+    it "should generate params { :controller => 'events', action => 'edit', id => '1' } from GET /events/1/edit" do
       params_from(:get, "/events/1/edit").should == {:controller => "events", :action => "edit", :id => "1"}
     end
   

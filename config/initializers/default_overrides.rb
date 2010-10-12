@@ -2,6 +2,6 @@
 # The default for will_paginate is 30, which seems a little high.
 class ActiveRecord::Base
   def self.per_page
-    10
+    25
   end
 end

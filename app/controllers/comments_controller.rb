@@ -91,6 +91,8 @@ class CommentsController < ApplicationController
         @comment.commentable.owner?(current_person) or current_person?(@comment.commenter)
       elsif blog?
         current_person?(person)
+      elsif event?
+        current_person?(person) or current_person?(@comment.commenter)
       end
     end
     

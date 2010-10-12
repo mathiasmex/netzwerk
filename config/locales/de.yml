@@ -30,18 +30,18 @@ de:
       
   datetime:
     distance_in_words:
-      half_a_minute: 'eine halbe Minute'
+      half_a_minute: 'vor einer halben Minute'
       less_than_x_seconds:
-        zero: 'weniger als 1 Sekunde'
-        one: 'weniger als 1 Sekunde'
-        other: 'weniger als %{count} Sekunden'
+        zero: 'vor weniger als 1 Sekunde'
+        one: 'vor weniger als 1 Sekunde'
+        other: 'vor weniger als %{count} Sekunden'
       x_seconds:
         one: 'vor 1 Sekunde'
         other: 'vor %{count} Sekunden'
       less_than_x_minutes:
-        zero: 'weniger als 1 Minute'
-        one: 'weniger als eine Minute'
-        other: 'weniger als %{count} Minuten'
+        zero: 'vor weniger als 1 Minute'
+        one: 'vor weniger als einer Minute'
+        other: 'vor weniger als %{count} Minuten'
       x_minutes:
         one: 'vor 1 Minute'
         other: 'vor %{count} Minuten'
@@ -52,17 +52,17 @@ de:
         one: 'vor 1 Tag'
         other: 'vor %{count} Tagen'
       about_x_months:
-        one: 'etwa 1 Monat'
-        other: 'etwa %{count} Monate'
+        one: 'vor etwa 1 Monat'
+        other: 'vor etwa %{count} Monaten'
       x_months:
         one: 'vor 1 Monat'
-        other: 'vor %{count} Monate'
+        other: 'vor %{count} Monaten'
       about_x_years:
-        one: 'etwa 1 Jahr'
-        other: 'etwa %{count} Jahre'
+        one: 'vor etwa 1 Jahr'
+        other: 'vor etwa %{count} Jahren'
       over_x_years:
-        one: 'mehr als 1 Jahr'
-        other: 'mehr als %{count} Jahre'
+        one: 'vor mehr als 1 Jahr'
+        other: 'vor mehr als %{count} Jahren'
     prompts:
       second: "Sekunden"
       minute: "Minuten"
@@ -168,6 +168,8 @@ de:
                         Bitte nicht darauf antworten, da kein Mensch auf der anderen Seite sitzt."
     thanks:            "Danke!"
     or:                " oder "
+    disconnect:        "Trennen"
+    reconnect:         "Erneut verbinden"
     warning:           "Warnung"
     next:              "n&auml;chster"
     previous:          "vorheriger"
@@ -175,6 +177,7 @@ de:
     ends_at:           "Endet am:"
     go_to:             "Gehe zu den "
     to_see_all:        ", um alle zu sehen."
+    formatting_supported: "Formatierung wird unterst&uuml;tzt"
     
   activity:
     delete_activity_confirmation: "Soll diese Aktivit&ouml;t wirklich aus dem Profil gel&ouml;scht werden?"
@@ -182,7 +185,12 @@ de:
     just_joined:                  "ist dem Netzwerk beigetreten"
     person_joined:                "%{person} ist dem Netzwerk beigetreten"
     invalid_activity_type:        "Ung&uuml;ltiger Aktivit&auml;tentype %{activity}"
-  
+
+  blog:
+    latest_blog_entries:        "Letzte Blogeintr&auml;ge der Initiativen"
+    latest_group_blog_entries:  "Letzte Blogeintr&auml;ge auf der Webseite der Initiative %{site}"
+    latest_person_blog_entries: "Letzte Blogeintr&auml;ge auf der Webseite %{site}"
+
   comment:
     one:                                 "1 Kommentar"
     other:                               "%{count} Kommentare"
@@ -212,7 +220,7 @@ de:
     person_commented_on_activity:        "%{person} hat %{activity} kommentiert"
     commented_on_group_activity:         "hat %{activity} kommentiert"
     person_commented_on_group_activity:  "%{person} hat %{activity} kommentiert"
-    commented_on_organizer_event:        "hat %{organizer} Veranstaltung %{event} kommentiert" 
+    commented_on_organizer_event:        "Veranstaltung %{event} von %{organizer} kommentiert" 
     person_commented_on_organizer_event: "%{person} hat %{organizer} Veranstaltung %{event} kommentiert" 
     wall_comments:                       "Pinnwand-Kommentare"
     blog_comments:                       "Blog Kommentare"
@@ -246,6 +254,7 @@ de:
     
   event:
     calendar:                         "Kalender"
+    created_event:                    "neue Veranstaltung %{event} erstellt"
     person_created_event:             "%{person} hat eine neue Veranstaltung erstellt: %{event}"
     person_created_the_event:         "%{person} hat die Veranstaltung %{event} erstellt, welche am %{startdate} startet"
     person_attending_organizer_event: "%{person} nimmt an %{organizer} Veranstaltung %{event} teil"
@@ -254,7 +263,7 @@ de:
     show_all_events:                  "Alle Veranstaltungen anzeigen"
     location:                         "Veranstaltungsort:"
     events_location:                  "Veranstaltungsorte"
-    events_location_near_you:         "Veranstaltungsorte in der N&auml;he"
+    events_location_near_you:         "Veranstaltungen in der N&auml;he"
     no_events_near_you:               "Keine Veranstaltungen in der N&auml;he."
     title:                            "Titel"
     description:                      "Beschreibung"
@@ -271,9 +280,9 @@ de:
       other:                            "Personen nehmen daran teil"
     will_attend:                      "Ich m&ouml;chte daran teilnehmen"
     will_not_attend:                  "Ich m&ouml;chte nicht mehr daran teilnehmen"
-    search_by_location:               "Veranstaltungsort suchen"
+    search_by_location:               "Nach Veranstaltungsort suchen"
     editing_event:                    "Veranstaltung bearbeiten"
-    listing_events:                   "Veranstaltungen auflisten"
+    listing_events:                   "Veranstaltungen"
     add_new_event:                    "Veranstaltung hinzuf&uuml;gen"
     listing_events_in:                "Veranstaltungen in "
     distance:                         "Entfernung"
@@ -376,6 +385,9 @@ de:
     topic_created:                      "Thema erfolgreich erstellt"
     topic_updated:                      "Thema erfolgreich aktualisiert"
     topic_destroyed:                    "Thema erfolgreich entfernt"
+    service_successfully_connected:     "%{service} wurde erfolgreich mit Ihrem Profil verbunden"
+    service_successfully_disconnected:  "%{service} wurde erfolgreich von Ihrem Profil getrennt"
+    error_happened_connecting:          "Ein Fehler ist aufgetreten! Bitte erneut versuchen, die Verbindung herzustellen"
        
   forum:
     forum_topics:      "Forum Themen"
@@ -418,6 +430,7 @@ de:
     invitation_for_group:           "Einladung zur Initiative:"
     view_group:                     "Anschauen"
     group_wall:                     "%{group} Pinnwand"
+    created_group:                  "neue Initiative %{group_link} erstellt"
     person_created_group:           "%{person} hat die Initiative %{group_link} erstellt"
     profile:                        "Profil der Initiative: <strong>%{group}</strong>"
     description_blank_notice:       "Die Beschreibung fehlt."
@@ -469,6 +482,8 @@ de:
                                      kann ein Kommentar auf der Pinnwand hinterlassen werden."
     group_person:                   "%{person}'s Initiativen"
     add_group:                      "Neue Initiative hinzuf&uuml;gen"
+    joined_groups:                  "Initiativen als Mitglied"
+    website_url:                    "URL des Blogs Ihrer Webseite"
 
   groups:
     admin_groups:           "Eigene Initiativen"
@@ -490,6 +505,10 @@ de:
     unread_messages_notice: "Es sind ungelesenene Nachrichten im Posteingang."
     unread_messages_link:   "Hier klicken, um die Nachrichten zu lesen"
     about:                  "&Uuml;ber "
+    about_this_network:     "&Uuml;ber %{app_name}"
+    privacy_policy:         "Datenschutz "
+    privacy_policy_network: "Datenschutzrichtlinien "
+    impressum:              "Impressum "
     learn_more_about_us:    ", um mehr &uuml;ber %{the_site} zu erfahren."
     see_all_members:        "Alle Mitglieder &raquo;"
     dashboard:              "&Uuml;bersicht"
@@ -556,8 +575,8 @@ de:
     edit_profile:                 "Profil bearbeiten"
     public_description:           "&Ouml;ffentliche Beschreibung"
     public_description_meta:      "Dies ist die Beschreibung, die andere Nutzer des Systems sehen."
-    email_notification_pref:      "Einstellungen der Email-Benachrichtigung"
-    email_notification_pref_meta: "Email erhalten, wenn diese Veranstaltungen eintritt"
+    email_notification_pref:      "Einstellungen der<br> Email-Benachrichtigungen"
+    email_notification_pref_meta: "Email erhalten, wenn diese Ereignisse eintreten"
     change_your_password:         "Passwort &auml;ndern"
     current_password:             "Aktuelles Passwort"
     new_password:                 "Neues Passwort"
@@ -577,6 +596,8 @@ de:
     not_active:                   "Diese Person ist nicht aktiv"
     description_blank_notice:     "Die Beschreibung fehlt."
     description_blank_link:       "Hier klicken, um eine Beschreibung hinzuzuf&uuml;gen"
+    location:                     "Standort"
+    geolocate_address:            "Geolokalisieren des Standortes, um Veranstaltungen in der N&auml;he anzuzeigen"
     persons_contacts:             "%{person}'s Kontakte"
     contacts:                     "Kontakte"
     see_all_contacts:             "Alle Kontakte &raquo;"
@@ -591,6 +612,7 @@ de:
     blog_tab:                     "Blog"
     galleries_tab:                "Gallerien"
     events_tab:                   "Veranstaltungen"
+    services_tab:                 "Dienste"
     comment_wall:                 "%{person}'s Kommentar-Pinnwand"
     edit_personal_info:           "Pers&ouml;nliche Information"
     person_admin:                 "Mitglieder verwalten"
@@ -630,8 +652,8 @@ de:
     select_person_profile_photo: "Als Profil Foto w&auml;hlen"
     select_as_gallery_thumbnail: "Als Gallerie Minibild w&auml;hlen"
     new_photo_added:             "neues Foto %{photo} %{gallery} hinzugef&uuml;gt"
-    person_added_new_photo:      "%{person} hat ein neues %{photo_str} %{photo} %{gallery} hinzugef&uuml;gt"
-    owner_added_new_photo:       "%{owner} hat ein neues %{photo_str} %{photo} %{gallery} hinzugef&uuml;gt"
+    person_added_new_photo:      "%{person} hat das neue %{photo_str} %{photo} %{gallery} hinzugef&uuml;gt"
+    owner_added_new_photo:       "%{owner} hat das neue %{photo_str} %{photo} %{gallery} hinzugef&uuml;gt"
     
   post:
     one:                      "1 Beitrag"
@@ -651,34 +673,38 @@ de:
     persons_blog:             "%{person}'s Blog"
     owners_blog:              "%{owner}'s Blog"
     person_posted_blog_post:  "%{person} hat %{blog_post} &mdash; %{blog} ver&ouml;ffentlicht"
-    owner_posted_blog_post:   "%{owner} hat %{blog_post} &mdash; %{blog} ver&ouml;ffentlicht"
+    owner_posted_blog_post:   "%{owner} hat %{blog_post} in %{blog} ver&ouml;ffentlicht"
     no_blog_posts:            "(Noch) keine Blog Beitr&auml;ge"
     person_new_blog_post:     "%{person} hat einen %{new_blog_post} erstellt"
     
   pref:
-    edit_global_prefs:    "Globale Einstellungen bearbeiten"
-    application_name:     "Name der Webseite"
-    email_domain:         "Email Domain"
-    server_name:          "Server Name"
-    smtp_server:          "SMTP Server"
-    send_notices:         "Nachricht senden"
-    email_notifications:  "Email Benachrichtigung"
-    send_notices_meta:    "Email Benachrichtigungen, wenn Nachrichten, Verbindungsanfragen, etc., gesendet werden"
-    demo_site:            "Demo Seite"
-    demo_site_meta:       "Hinweis anzeigen, dass es sich um eine Demonstrationsseite handelt"
-    whitelist_meta:       "Neue Mitglieder im deaktivierten Zustand registrieren bis sie autorisiert sind"
-    whitelist:            "Autorisierung"
-    verify_email_meta:    "Email von neuen Mitgliedern mit einem Aktivierungscode verifizieren"
-    verify_email:         "Verifizierungs Emails"
-    email_verifications:  "Email Verifizierung"
-    activation_code_meta: "Email an neue Mitglieder mit Aktivierungscode senden"
-    keep_it_short_meta:   "Kurz halten, um die Breite von 146px einzuhalten"
-    analytics:            "Google Analytics Code"
-    analytics_meta:       "Der Code wird direkt vor den &lt;/body&gt; tag eingef&uuml;gt"
-    global_prefs:         "Globale Einstellungen"
-    about_meta:           "Webseitenbeschreibung (Texteintrag f&uuml;hrt zu einem \"&Uuml;ber\" link)"
-    about_meta_edit:      "Webseitenbeschreibung"
-    prefs:                "Einstellungen"
+    edit_global_prefs:        "Globale Einstellungen bearbeiten"
+    application_name:         "Name der Webseite"
+    email_domain:             "Email Domain"
+    server_name:              "Server Name"
+    smtp_server:              "SMTP Server"
+    send_notices:             "Nachricht senden"
+    email_notifications:      "Email Benachrichtigung"
+    send_notices_meta:        "Email Benachrichtigungen, wenn Nachrichten, Verbindungsanfragen, etc., gesendet werden"
+    demo_site:                "Demo Seite"
+    demo_site_meta:           "Hinweis anzeigen, dass es sich um eine Demonstrationsseite handelt"
+    whitelist_meta:           "Neue Mitglieder im deaktivierten Zustand registrieren bis sie autorisiert sind"
+    whitelist:                "Autorisierung"
+    verify_email_meta:        "Email von neuen Mitgliedern mit einem Aktivierungscode verifizieren"
+    verify_email:             "Verifizierungs Emails"
+    email_verifications:      "Email Verifizierung"
+    activation_code_meta:     "Email an neue Mitglieder mit Aktivierungscode senden"
+    keep_it_short_meta:       "Kurz halten, um die Breite von 146px einzuhalten"
+    analytics:                "Google Analytics Code"
+    analytics_meta:           "Der Code wird direkt vor den &lt;/body&gt; tag eingef&uuml;gt"
+    global_prefs:             "Globale Einstellungen"
+    about_meta:               "Webseitenbeschreibung (Texteintrag f&uuml;hrt zu einem \"&Uuml;ber\" link)"
+    impressum_meta:           "Impressum (Texteintrag f&uuml;hrt zu einem \"Impressum\" link)"
+    privacy_policy_meta:      "Datenschutzrichtlinen (Texteintrag f&uuml;hrt zu einem \"Datenschutz\" link)"
+    about_meta_edit:          "Webseitenbeschreibung"
+    impressum_meta_edit:      "Impressum"
+    privacy_policy_meta_edit: "Datenschutzrichtlinien"
+    prefs:                    "Einstellungen"
     
   search:
     browse_forum:    "Forum durchsuchen"
@@ -690,15 +716,25 @@ de:
     search_results:  "Suchergebnisse"
     no_results:      "Keine Ergebnisse"
     
+  services:
+    services:                "Dienste"
+    already_connected_to:    "Sie sind bereits mit %{service} verbunden"
+    experienced_problem:     "falls Probleme mit diesem Dienst aufgetreten sind"
+    currently_not_connected: "Momentan sind keine externen Dienste angeschlossen"
+    currently_connected:     "Momentan sind folgende externe Dienste angeschlossen:"
+    can_connect_services:    "Folgende Dienste stehen zur Verf&uuml;gung:"
+
   session:
     sign_in:               "Anmelden"
     email:                 "Email Adresse"
     password:              "Passwort"
     open_id:               "OpenId"
+    oauth:                 "Twitter"
     remember_me:           "Anmeldedaten speichern:"
     or_sign_up:            "oder Registrieren"
     forgot_password:       "Ich habe mein Passwort vergessen!"
     login_with_open_id:    "Anmelden mit OpenID"
+    login_with_oauth:      "Mit einem Twitter-Konto anmelden"
     back_to_regular_login: "Zur&uuml;ck zur normalen Anmeldung"
     sign_out:              "Abmelden"
     

@@ -13,7 +13,7 @@
         <%= f.label :email %>
         <%= f.text_field :email, :maxlength => Person::MAX_EMAIL %>
       </div>
-      
+      <br />
     <h3><%=t ('person.public_description') %></h3>
       <p class="meta"><%=t ('person.public_description_meta') %></p>
       <div class="form_row">
@@ -21,9 +21,70 @@
         <%= f.text_area :description  %>
       </div>
 
+      <div class="form_row">
+        <%= f.submit t('global.update'), :class => "button" %>
+        <%= link_to t('global.cancel'), @person %>
+        <input type="hidden" name="type" value="info_edit" />
+      </div>
+      <br />
+    <h3><%= t('person.location') %></h3>
+      <p class="meta"><%= t('person.geolocate_address') %></p>
+      <div class="form_row">
+        <%= f.hidden_field :lat %>
+        <%= f.hidden_field :lng %>
+        <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<%= Geokit::Geocoders::google %>"
+                type="text/javascript"></script>
+        <div id="map_div"></div>
+        <br />
+        <%= text_field_tag :address %>
+        <%= submit_to_remote 'geolocate_button', t('event.geolocate'),
+          :url => {:controller => 'events', :action => 'geolocate', :map => @map, :type => 'person', :method => :get},
+          :after => '$("#loading").css("visibility","visible")',
+          :complete => '$("#loading").css("visibility","hidden")', :html => {:class => "button"} %>
+        <%= image_tag "loading.gif", :id => "loading", :class => "hidden" %>
+      </div>
+
+      <div class="form_row">
+        <%= f.submit t('global.update'), :class => "button" %>
+        <%= link_to t('global.cancel'), @person %>
+        <input type="hidden" name="type" value="person" />
+      </div>
+
+  <% end %>
+  </div>
+<%- end -%>
+
+<%- column_div :type => :secondary do -%>
+  <h2><%=t ('person.change_your_password') %></h2>
+
+  <% form_for @person, :html => { :id => "change_password" } do |f| %>
+    <div class="form_row">
+      <%= label :person, :verify_password, t('person.current_password') %>
+      <%= f.password_field :verify_password, :size => 34, :maxlength => Person::MAX_PASSWORD %>
+    </div>
+
+    <div class="form_row">
+      <%= label :person, :new_password, t('person.new_password') %>
+      <%= f.password_field :new_password, :size => 34, :maxlength => Person::MAX_PASSWORD %>
+    </div>
+
+    <div class="form_row">
+      <%= label :person, :password_confirmation, t('person.confirm_password') %>
+      <%= f.password_field :password_confirmation,  :size => 34, :maxlength => Person::MAX_PASSWORD, :value => "" %>
+    </div>
+
+    <div class="form_row">
+      <%= submit_tag t('person.change_password'), :class => "button" %>
+      <input type="hidden" name="type" value="password_edit" />
+    </div>
+  <% end %>
+
+  <div id="profile_edit">
+    <%= error_messages_for :person %>
+    <% form_for @person do |f| %>
       <%- if global_prefs.email_notifications? -%>
         <a name="email_prefs"></a>
-        <h3><%=t ('person.email_notification_pref') %></h3>
+        <h2><%=t ('person.email_notification_pref') %></h2>
 
         <p class="meta"><%=t ('person.email_notification_pref_meta') %></p>
 
@@ -53,7 +114,6 @@
         </div>
       <%- end -%>
 
-  
       <div class="form_row">
         <%= f.submit t('global.update'), :class => "button" %>
         <%= link_to t('global.cancel'), @person %>
@@ -61,30 +121,18 @@
       </div>
   <% end %>
   </div>
+
 <%- end -%>
 
-<%- column_div :type => :secondary do -%>
-  <h2><%=t ('person.change_your_password') %></h2>
+<%= javascript_include_tag 'gmaps.js' %>
+<script type='text/javascript'>
+$(document).ready(function(){
+    //For Google Maps
+    initialize_map();
+    map.clearOverlays();
 
-  <% form_for @person, :html => { :id => "change_password" } do |f| %>
-    <div class="form_row">
-      <%= label :person, :verify_password, t('person.current_password') %>
-      <%= f.password_field :verify_password, :size => 34, :maxlength => Person::MAX_PASSWORD %>
-    </div>
-
-    <div class="form_row">
-      <%= label :person, :new_password, t('person.new_password') %>
-      <%= f.password_field :new_password, :size => 34, :maxlength => Person::MAX_PASSWORD %>
-    </div>
-
-    <div class="form_row">
-      <%= label :person, :password_confirmation, t('person.confirm_password') %>
-      <%= f.password_field :password_confirmation,  :size => 34, :maxlength => Person::MAX_PASSWORD, :value => "" %>
-    </div>
-
-    <div class="form_row">
-      <%= submit_tag t('person.change_password'), :class => "button" %>
-      <input type="hidden" name="type" value="password_edit" />
-    </div>
-  <% end %>
-<%- end -%>
+    if (parseFloat($('#person_lat').val()) != 0 && parseFloat($('#person_lng').val()) != 0){
+      geolocateAddress($('#person_lat').val(),$('#person_lng').val(),'Standort', true, 'person');
+    }
+});
+</script>

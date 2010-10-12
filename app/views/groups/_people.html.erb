@@ -1,5 +1,5 @@
 <%- if title.length > 0 -%>
-  <h3><span class="fn n"><%= title %> <%=t ('group.of_group', :group => h(@group.name)) %></span></h3>
+  <h3><span class="fn n"><%= title %> <%= t('group.of_group', :group => h(@group.name)) %></span></h3>
 <%- end -%>
 <%- unless members.empty? -%>
   <ul class="grid contacts medium">

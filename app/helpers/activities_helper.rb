@@ -64,14 +64,6 @@ module ActivitiesHelper
                      :event => event_link(event.title, event)
         end
       end
-    when "Event"
-      # TODO: make recent/long versions for this
-      event = activity.item
-      commenter = activity.item.person
-      t 'event.person_created_the_event', 
-                 :person => person_link_with_image(commenter), 
-                 :startdate => event.start_time.to_date, 
-                 :event => event_link(event.title, event)
     when "Connection"
       if activity.item.contact.admin?
         if recent
@@ -141,11 +133,12 @@ module ActivitiesHelper
       event = activity.item
       if recent
         t 'event.created_event',
-                 :event => event_link(activity.item)
+                 :event => event_link(event.title, event)
       else
-        t 'event.owner_created_event',
-                 :owner => person_link_with_image(person),
-                 :event => event_link(activity.item)
+        t 'event.person_created_event',
+                 :owner => person_link_with_image(owner),
+                 :startdate => event.start_time.to_date, 
+                 :event => event_link(event.title, event)
       end
     when "EventAttendee"
       event = activity.item.event
@@ -170,6 +163,15 @@ module ActivitiesHelper
         t 'group.person_created_group',
                 :person => person_link_with_image(owner),
                 :group_link => group_link(Group.find(activity.item))
+      end
+    when "FeedEntry"
+      if recent
+        t 'feed_entry.new_feed_posted',
+                   :feed_entry => entry_url(activity.item)
+      else
+        t 'feed_entry.group_posted_new_feed',
+                   :group => group_link(Group.find(activity.item.group)),
+                   :feed_entry => entry_url(activity.item)
       end
     when "Membership"
       if owner.class.to_s == "Group"
@@ -277,10 +279,15 @@ module ActivitiesHelper
                 :person => person_link(owner),
                 :group_link => group_link(Group.find(activity.item))
       end
+    when "FeedEntry"
+      feed_entry = activity.item.feed_entry
+        t 'feed_entry.group_posted_new_feed',
+                   :group => group_link(Group.find(activity.item.group)),
+                   :feed_entry => entry_url(activity.item)
     when "Membership"
-      t 'group.person_joined_group',
-               :person => person_link(owner),
-               :group => group_link(Group.find(activity.item.group))
+        t 'group.person_joined_group',
+                 :person => person_link(owner),
+                 :group_link => group_link(Group.find(activity.item.group))
     else
       raise t('activity.invalid_activity_type', :activity => activity_type(activity).inspect)
     end
@@ -335,6 +342,8 @@ module ActivitiesHelper
                 # TODO: replace with a group png icon
                 "asterisk_yellow.png"
               end
+            when "FeedEntry"
+              "page_white.png"
             when "Membership"
               # TODO: replace with a png icon
               "add.gif"
@@ -388,7 +397,7 @@ module ActivitiesHelper
   def photo_link(text, photo= nil)
     if photo.nil?
       photo = text
-      text = t('photo.photo')
+      text = photo.title
     end
     link_to(h(text), photo_path(photo))
   end

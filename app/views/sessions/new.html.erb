@@ -1,12 +1,12 @@
 <%- column_div :type => :primary do -%>
   <h2><%=t ('session.sign_in') %></h2>
 
-  <% form_tag session_path do -%>
+  <%- form_tag session_path do -%>
     <div id="standard">
         <div class="form_row">
           <label for="email"><%=t ('session.email') %></label>
           <%= text_field_tag 'email', params[:email],
-                             :maxlength => Person::MAX_EMAIL  %>
+                             :maxlength => Person::MAX_EMAIL %>
         </div>
         <%= set_focus_to "email" %>
 
@@ -36,36 +36,36 @@
       <%= link_to t('password_reminder.forgot_password'), new_password_reminder_path %>
     <br />
     <%- end -%>
-    <span id="noscript" style="display:none;">
+    <span id="noscript" style="display: none;">
         <span id="openid_link"><a href="#" onclick="show_openid(); return false;">
           <%=t ('session.login_with_open_id') %></a></span>
         <span id="standard_link"><a href="#" onclick="show_standard(); return false;">
           <%=t ('session.back_to_regular_login') %></a></span>
     </span>
     </div>
-  <% end -%>
+  <%- end -%>
 <%- end -%>
 <script type='text/javascript'>
-$(document).ready(function() {
+jQuery(document).ready(function() {
   show_openid = function() {
-      $('#openid').show();
-      $('#standard').hide();
-      $('#openid_link').hide();
-      $('#standard_link').show();
+      jQuery('#openid').show();
+      jQuery('#standard').hide();
+      jQuery('#openid_link').hide();
+      jQuery('#standard_link').show();
       createCookie('use_openid', 1, 30);
-      $('#openid_url').value = 'http://';
+      jQuery('#openid_url').value = 'http://';
   }
   show_standard = function() {
-      $('#openid').hide();
-      $('#standard').show();
-      $('#openid_link').show();
-      $('#standard_link').hide();
+      jQuery('#openid').hide();
+      jQuery('#standard').show();
+      jQuery('#openid_link').show();
+      jQuery('#standard_link').hide();
       eraseCookie('use_openid');
-      $('#openid_url').value = '';
+      jQuery('#openid_url').value = '';
   }
-  $('#openid').hide();
-  $('#standard_link').hide();
-  $('#noscript').show();
+  jQuery('#openid').hide();
+  jQuery('#standard_link').hide();
+  jQuery('#noscript').show();
 
   if (readCookie('use_openid')){
       show_openid();

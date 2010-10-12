@@ -22,7 +22,7 @@ h3,
 h4, 
 h5, 
 h6 {
-  display:  block;
+  display: block;
   margin-bottom: 1em;
 }
 h2 {
@@ -257,6 +257,11 @@ label.checkbox {float: left;margin-right: 12px; width: 120px;}
 body.single-col .col1 form input.checkbox {
   display: inline;
   width: auto;
+}
+.edit_person label.checkbox {
+  float: left;
+  margin-right: 12px;
+  width: 200px;
 }
 .form_row {
   position: relative;

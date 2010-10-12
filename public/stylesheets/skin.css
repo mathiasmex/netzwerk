@@ -146,6 +146,19 @@ p.welcome {
   position: relative;
   width: 102px;
 }
+.list.full li.Google {
+  background: url(../images/icons/g_small-b.png) no-repeat top left;
+  padding: 3px;
+}
+.list.full li.Twitter {
+  background: url(../images/icons/t_small-b.png) no-repeat top left;
+  padding: 3px;
+}
+.list.full li.Google a,
+.list.full li.Twitter a {
+  margin-left: 25px;
+}
+
 .list.small .profile-image {
   position: relative;
   width: 60px;
@@ -320,6 +333,51 @@ p.welcome {
 .message .tools {
   margin-right: 6px;
   text-align: right;
+}
+
+/* Preferences */
+#preferences-nav {
+  background: url(/images/silver-grad.jpg) bottom repeat-x;
+  border-bottom: 1px solid #ccc;
+  float: left;
+  height: 20px;
+  margin-top: -1px;
+  position: relative;
+  width: 100%;
+}
+#preferences-nav li {
+  background: none;
+  float: left;
+  font-size: 12px;
+  line-height: 24px;
+  list-style-type: none;
+  margin: 0;
+  text-align: center;
+  padding: 0;
+  width: 213px;
+}
+#preferences-nav li a:hover {
+  background: url(/images/silver-grad-inv.jpg) bottom repeat-x;
+}
+#preferences-nav li.compose {
+  background: url(/images/compose-t.png) top no-repeat;
+  float: right;
+  line-height: 10px;
+  margin: 3px 3px 0;
+  width: 154px;
+}
+#preferences-nav li.compose a, #preferences-nav li.compose a:hover {
+  background: url(/images/compose-b.png) bottom no-repeat;
+  color: #fff;
+  margin-top: 4px;
+  padding-bottom: 4px;
+}
+#preferences-nav li a {
+  color: #333;
+  display: block;
+  font-weight: normal;
+  height: 100%;
+  outline: 0;
 }
 
 /* Gallery list */
@@ -582,6 +640,11 @@ form#admin_preferences label {
 #openid_link,
 #openid label {
   background: url(/images/icons/login-bg.gif) no-repeat #fff 5px;
+  padding-left: 25px;
+}
+#oauth_link,
+#oauth label {
+  background: url(/images/icons/t_small-b.png) no-repeat #fff 1px;
   padding-left: 25px;
 }
 #sign_in .button,
