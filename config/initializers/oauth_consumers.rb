@@ -5,8 +5,8 @@
 #
   OAUTH_CREDENTIALS = {
     :twitter => {
-      :key    => "J1pq3mprAFw1vWCiWB0bQ",
-      :secret => "DyTJ5RoOidqoNlRpfezlo469VtEqyHYeRFXyb2SNlzQ"
+      :key    => "XXX",
+      :secret => "XXX"
     },
     :google => {
       :key     => "anonymous",
